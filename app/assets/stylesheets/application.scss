@@ -19,7 +19,12 @@
  @import "navbar";
 
 #root {
+  margin: 0;
   padding-top: 20px;
-  width: 95%;
+  width: 100%;
+}
+
+.replaced {
   margin: 0 auto;
+  width: 50%;
 }
