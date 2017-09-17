@@ -1,0 +1,46 @@
+
+
+.headerNav {
+  border-bottom: 1px solid #efefef;
+  background-color: white;
+
+}
+.headerNav * {
+  background-color: white;
+}
+
+.header {
+  /*remove default ul padding behavior*/
+  padding:0;
+  list-style: none;
+
+  display: flex;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.header li {
+  /*vertical alignment*/
+  margin: auto 0;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.header .logo {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+
+#searchLi {
+  margin-left: auto;
+}
+//
+#searchLi input {
+  border-radius: 15px;
+  height: 28px;
+  text-indent: 28px;
+  color: #222;
+
+}

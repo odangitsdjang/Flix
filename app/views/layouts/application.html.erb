@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ilovepix</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <nav class="headerNav">
+      <ul class="header">
+        <li class="logo"> ilovepix </li>
+        <li> Discover </li>
+        <li id="searchLi">
+          <span class="icon"><i class="fa fa-search"></i></span>
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </li>
+        <li> ilovepix </li>
+      </ul>
+    </nav>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

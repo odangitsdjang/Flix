@@ -1,0 +1,2 @@
+1. Set up with rails new ... , npm init -y, npm save ..
+2. Added extra gems, bootstrap: changed the application.css to application.scss and now need to manually import all css files

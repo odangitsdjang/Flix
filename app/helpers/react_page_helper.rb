@@ -1,0 +1,2 @@
+module ReactPageHelper
+end
