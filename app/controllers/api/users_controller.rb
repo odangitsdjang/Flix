@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
   def index
-    render plain: "INDEX ROUTE"
+    @users = User.all
+    render :index
   end
 
   def create
@@ -17,12 +18,13 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     if @user
-
+      render :show
     else
       render json: ["User does not exist"], status: 422
     end
   end
 
+  # bonus
   def edit
     render plain: "EDIT ROUTE"
   end

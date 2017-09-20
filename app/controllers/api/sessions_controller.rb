@@ -10,7 +10,8 @@ class Api::SessionsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @user = current_user
     if current_user
       log_out
       render "api/users/show"

@@ -17,14 +17,18 @@
  }
  @import "bootstrap";
  @import "navbar";
-
-#root {
+ @import "session";
+#outer {
   margin: 0;
   padding-top: 20px;
   width: 100%;
 }
 
-.replaced {
+.react-body {
   margin: 0 auto;
-  width: 50%;
+  width: 85%;
 }
+//
+// .footer {
+//   width: 100%;
+// }
