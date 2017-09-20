@@ -11,22 +11,29 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
  * {
-   background-color: #fafafa;
+   background: transparent;
+  //  background-color: #fafafa;
+   font-family: 'Droid-Sans', 'Open Sans', serif;
  }
+ @import "colors";
  @import "bootstrap";
  @import "navbar";
  @import "session";
-#outer {
-  margin: 0;
-  padding-top: 20px;
-  width: 100%;
-}
 
-.react-body {
-  margin: 0 auto;
-  width: 85%;
+
+.session-body {
+  // background-image: url("/assets/images/background.jpeg") no-repeat 50% 50% fixed;
+  background-image: url("ocean.gif");
+  height:100vh;
+    background-size: cover;
+    // Now this will center the header text
+    z-index: 100;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    position: relative;
+
 }
 //
 // .footer {

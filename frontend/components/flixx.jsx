@@ -13,14 +13,11 @@ const Flixx = (props) => {
         <NavBarContainer/>
       </header>
 
-      <div className="react-body">
-        <Switch>
-          <AuthRoute exact path="/" component={SessionFormContainer}/>
-          <AuthRoute path="/signup" component={SessionFormContainer}/>
-        </Switch>
-
-      </div>
-
+      <Switch>
+        <AuthRoute exact path="/" component={SessionFormContainer}/>
+        <AuthRoute path="/signup" component={SessionFormContainer}/>
+      </Switch>
+      
       <Route path='/' component={FooterContainer}/>
     </div>
   );

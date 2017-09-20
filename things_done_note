@@ -1,3 +1,5 @@
 1. Set up with rails new ... , npm init -y, npm save ..
 2. Added extra gems, bootstrap: changed the application.css to application.scss and now need to manually import all css files
 3. Added rspec, shoulda matchers; added users model/controller, session controller and following model (joins table). Made sure to test that everything here seems to be ok. Updated name to Flix.
+4. Finished back/front auth. Added css. man that took so long. Also added live guard thing to auto reload css/js and auto refresh the page.
+5. Run it with "guard -P livereload"
