@@ -1,0 +1,112 @@
+$INPUT_HEIGHT: 44px;
+$ERROR_HEIGHT: 46px;
+$INPUT_WIDTH: 300px;
+
+.session-body {
+  // background-image: url("/assets/images/background.jpeg") no-repeat 50% 50% fixed;
+  background-image: image-url("ocean.gif");
+  height:100vh;
+    background-size: cover;
+    // Now this will center the header text
+    z-index: 100;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    position: relative;
+
+}
+
+.session {
+  padding-top: 80px;
+  padding-bottom: 95px;
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  color: #151718;
+  margin: 0 auto;
+
+}
+.session h1 {
+  font-size: 65px;
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+.session h2 {
+  padding-bottom: 50px;
+  font-weight: bold;
+}
+.session h5 {
+  font-size: 14px;
+
+}
+
+.session form {
+  // background-color: #FDFDF7;
+  // opacity: 0.9;
+  // border: 1px solid $moreGrey3;
+  display: flex;
+  flex-direction: column;
+  padding: 45px 75px 50px 100px;
+  color: #050606;
+  border: 1px solid $grey;
+    background: white;
+    opacity: 0.9;
+}
+
+.session input {
+  width: $INPUT_WIDTH;
+  height: $INPUT_HEIGHT;
+  border: 1px solid $moreGrey3;
+  background-color: white;
+
+}
+
+.session .password {
+  border-top: 0;
+}
+
+.session .email {
+  border-top: 0;
+}
+
+.session ul {
+  padding: 0;
+  list-style: none;
+}
+
+.session li {
+  width: $INPUT_WIDTH;
+  height: $ERROR_HEIGHT;
+  background: rgba(0,0,0,0.33);
+  color: white;
+  text-align: center;
+  margin-bottom: 3px;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 14px 15px;
+}
+.session form input {
+  padding: 0 30px;
+}
+
+.session .email {
+  border-bottom: 1px solid $moreGrey3;
+}
+
+.session input[type=submit] {
+ height: 40px;
+ font-size: 1em;
+ font-weight: 200;
+ border: 1px solid $moreGrey3;
+ color: black;
+ width: 150px;
+ cursor: pointer;
+ transition: color 0.3s;
+ transition: background-color 0.3s;
+}
+
+.session input[type=submit]:hover {
+
+  background: $lessBlack;
+  color: white;
+}

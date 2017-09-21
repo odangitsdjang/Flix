@@ -1,0 +1,33 @@
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.footer h5 {
+  padding-top: 15px;
+  text-align:  center;
+}
+.footer div {
+  margin: 0 auto;
+  width: 30%;
+}
+.footer ul {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.footer li {
+  list-style: none;
+  font-size: 36px;
+}
+
+.footer a {
+  color: black
+}
+
+.footer a:hover {
+  color: $hoverBlue;
+}

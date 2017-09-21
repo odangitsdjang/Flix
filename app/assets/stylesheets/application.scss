@@ -10,31 +10,23 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  */
  * {
    background: transparent;
   //  background-color: #fafafa;
    font-family: 'Droid-Sans', 'Open Sans', serif;
  }
- @import "colors";
+
+
+
  @import "bootstrap";
+ @import "colors";
  @import "navbar";
- @import "session";
+ @import "session_form";
+ @import "user_profile";
+ @import "footer";
 
-
-.session-body {
-  // background-image: url("/assets/images/background.jpeg") no-repeat 50% 50% fixed;
-  background-image: image-url("ocean.gif");
-  height:100vh;
-    background-size: cover;
-    // Now this will center the header text
-    z-index: 100;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    position: relative;
-
-}
 //
 // .footer {
 //   width: 100%;

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  DEFAULT_PROFILE_PIC = "defaultPP.svg"
+  DEFAULT_PROFILE_PIC = "http://res.cloudinary.com/odangitsdjang/image/upload/v1505966458/defaultPP_xfk4yh.svg"
 
   validates :email, :img_url, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6}, allow_nil: true
@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :followers, through: :following_tag, source: :follower
   has_many :following, through: :followers_tag, source: :following
 
+  has_many :pixes, primary_key: :id, foreign_key: :author_id, class_name: :Pix
   after_initialize :ensure_session_token, :ensure_default_img
 
   attr_reader :password

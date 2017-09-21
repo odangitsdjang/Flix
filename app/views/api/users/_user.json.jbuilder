@@ -1,4 +1,4 @@
-json.extract! user, :id, :username
+json.extract! user, :id, :username, :status, :firstname, :lastname, :img_url
 
 # followers and following will return array of ids
 json.followers user.follower_ids

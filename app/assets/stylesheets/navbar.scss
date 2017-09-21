@@ -1,10 +1,14 @@
 
 
 .headerNav {
-  padding-left: 30px;
   border-bottom: 1px solid #efefef;
   background-color: white;
 
+}
+
+.headerNav div{
+  width: 90%;
+  margin: 0 auto;
 }
 .headerNav * {
   background-color: white;
@@ -38,7 +42,7 @@
   /*vertical alignment*/
   margin: auto 0;
   padding-right: 20px;
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 .header .logo {
@@ -58,3 +62,27 @@
   color: #222;
 
 }
+
+
+ .logout {
+ 	background-color:black;
+ 	-moz-border-radius:13px;
+ 	-webkit-border-radius:13px;
+ 	border-radius:13px;
+ 	border:1px solid #ffffff;
+ 	display:inline-block;
+ 	cursor:pointer;
+ 	color:#ffffff;
+ 	font-family:Arial;
+ 	font-size:14px;
+ 	padding:10px 15px;
+ 	text-decoration:none;
+
+ }
+ .logout:hover {
+ 	background-color:$lessBlack2;
+ }
+ .logout:active {
+ 	position:relative;
+ 	top:1px;
+ }

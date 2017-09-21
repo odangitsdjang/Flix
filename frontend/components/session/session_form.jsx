@@ -27,12 +27,16 @@ class SessionForm extends React.Component {
   renderEmail() {
     if (this.props.formType === "register")
       return (
-          <input placeholder="email" type="email" name="email" value={this.state.email}
+          <input placeholder="email" className="email" type="email" name="email" value={this.state.email}
             onChange={(e)=>this.setState({[e.target.name]: e.target.value}) }/>
       );
   }
+
+  renderErrors() {
+    return this.props.errors.map(err => <li> {err}</li>);
+  }
   renderRegisterOrLogin() {
-    return this.props.formType === 'login' ? "log in" : "register";
+    return this.props.formType === 'login' ? "Login" : "Register";
   }
 
   renderOpposite() {
@@ -50,23 +54,24 @@ class SessionForm extends React.Component {
           </div>
 
           <form onSubmit={this.handleSubmit}>
-            <h2> {this.renderRegisterOrLogin()}! </h2>
+
 
               <input placeholder="username" type="text" name="username" value={this.state.username}
                 onChange={(e)=>this.setState({[e.target.name]: e.target.value}) }/>
-            <br/>
 
-              <input type="password" placeholder="password" name="password" value={this.state.password}
+              <input type="password" className="password" placeholder="password" name="password" value={this.state.password}
                 onChange={(e)=>this.setState({[e.target.name]: e.target.value}) }/>
-            <br/>
-
             {this.renderEmail()}
             <br/>
+            <ul>
+              {this.renderErrors()}
+            </ul>
+
 
 
             <input type="submit" value={this.props.formType}/>
             <br/>
-            <h5>or <Link to={this.props.formType==="login" ? "/signup" : "/"}>{this.renderOpposite()}</Link> </h5>
+            <h5>or <Link onClick={this.props.clearErrors} to={this.props.formType==="login" ? "/signup" : "/"}>{this.renderOpposite()}</Link> </h5>
           </form>
         </div>
       </div>
