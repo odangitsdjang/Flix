@@ -1,6 +1,7 @@
 .userProfile {
   background-color: #fafafa;
   padding-bottom: 3%;
+
 }
 
 .userBody {
@@ -14,7 +15,7 @@
 
 .userInfo {
   display: flex;
-  display: row;
+
   justify-content: space-around;
 }
 
@@ -80,6 +81,27 @@
  top:1px;
 }
 
+.userText h1 {
+  font-family: 'Lobster', cursive;
+}
+
+.userText h5 {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.profilePic {
+  padding-left: 10%;
+}
+.profilePic img {
+  width: 150px;
+  height:150px;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+
 #uploadPic {
  background-color:black;
  -moz-border-radius:13px;
@@ -106,51 +128,27 @@
 }
 
 .grid {
-  display: grid;
-  // 1/3rd
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  align-items: center;
-  justify-items: center;
-
-}
-
-
-.grid div {
   display: flex;
-
+  flex-wrap: wrap;
 }
 
-.grid div img {
-  width:100%;
-  height:100%;
+// load the area
+.grid::after {
+  content: '';
+  flex-grow: 999999999;
 }
-
-
-
-
-//
-// section {
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-// section::after {
-//   content: '';
-//   flex-grow: 999999999;
-// }
-// div {
-//   margin: 2px;
-//   background-color: violet;
-//   position: relative;
-//   flex-grow: 1;
-//   height: 200px;
-//   overflow: hidden;
-// }
-// img {
-//   min-width: 100%;
-//   max-width: 100%;
-//   height: 200px;
-//   object-fit: cover;
-//   vertical-align: bottom;
-// }
+.grid div {
+  margin: 2px;
+  background-color: white;
+  position: relative;
+  flex-grow: 1;
+  height: 400px;
+  overflow: hidden;
+}
+.grid img {
+  min-width: 100%;
+  max-width: 100%;
+  height: 399px;
+  object-fit: cover;
+  vertical-align: bottom;
+}
