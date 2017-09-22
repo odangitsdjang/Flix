@@ -12,17 +12,19 @@ const customStyles = {
   }
 };
 
-class modalDemo extends React.Component {
-  constructor() {
-    super();
+class UploadModal extends React.Component {
+  constructor(props) {
+    super(props);
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      caption: ""
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.updateInput = this.updateInput.bind(this);
   }
 
   openModal() {
@@ -31,17 +33,34 @@ class modalDemo extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
+    this.subtitle.style.color = '#050606';
   }
 
   closeModal() {
     this.setState({modalIsOpen: false});
   }
 
+  componentDidMount() {
+    this.openModal();
+
+  }
+
+  createPix(e) {
+    e.preventDefault();
+    const newPic = { caption: this.state.caption, img_url: this.props.imgSrc,
+      author_id: this.props.authorId };
+    this.props.createPic(newPic);
+  }
+
+  updateInput(e) {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   render() {
     return (
       <div>
-        <button onClick={this.openModal}>Open Modal</button>
+
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -49,21 +68,17 @@ class modalDemo extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
+          <h2 ref={subtitle => {this.subtitle = subtitle;}}>Add a pic~</h2>
 
-          <h2 ref={subtitle => {this.subtitle = subtitle;}}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
+          <form className="uploadPicForm" onSubmit={e=> this.createPix(e) }>
+            <img src={this.props.imgSrc}/>
+            <input name="caption" value={this.state.caption} placeholder="~~Caption~~" onChange={this.updateInput}/>
+            <input type="submit" value="upload!!"/>
           </form>
         </Modal>
       </div>
     );
   }
 }
-
-export default modalDemo;
+// <button onClick={this.openModal}>Open Modal</button>
+export default UploadModal;

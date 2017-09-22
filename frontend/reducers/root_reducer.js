@@ -6,12 +6,14 @@ import session from './session_reducer';
 // import ui from './ui_reducer';
 import errors from './errors_reducer';
 import UserReducer from './user_reducer';
+import PixReducer from './pix_reducer';
 
 
 // pix: pixReducer,
 // users: usersReducer
 const EntitiesReducer = combineReducers({
-  user: UserReducer
+  user: UserReducer,
+  pix: PixReducer
 });
 
 const RootReducer = combineReducers({

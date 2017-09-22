@@ -16,7 +16,7 @@ const receiveUserErrors = (errors) => ({
 export const getUserInfo = (id) => dispatch => (
   UserUtil.getUserInfo(id).then(
     successUser => dispatch(receiveUser(successUser)),
-    err => dispatch(RECEIVE_USER_ERRORS(err.responseJSON))
+    err => dispatch(receiveUserErrors(err.responseJSON))
   )
 );
 

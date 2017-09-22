@@ -6,5 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 50.times do |num|
-  User.create(username: "user#{num}", password:"password", email: "user#{num}@gmail.com" )
+  User.create(username: "user#{num+1}", password:"password", email: "user#{num+1}@gmail.com" )
 end
+
+User.first.follower_ids=[2,3,4,5,6,7,8,9,10,14,15,19,20,21,25,49]

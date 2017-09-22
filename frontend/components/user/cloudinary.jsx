@@ -4,6 +4,8 @@ const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/odangitsdjang/ima
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import UploadModalContainer from './upload_modal_container';
+
 // code from here credits to www.css-tricks.com/image-upload-manipulation-react
 export default class Cloudinary extends React.Component {
   constructor(props) {
@@ -33,6 +35,7 @@ export default class Cloudinary extends React.Component {
     upload.end((err, response) => {
       if (err) {
         console.error(err);
+        return;
       }
 
       if (response.body.secure_url !== '') {
@@ -51,17 +54,19 @@ export default class Cloudinary extends React.Component {
             multiple={false}
             accept="image/*"
             onDrop={this.onImageDrop.bind(this)}>
-            <button className="myButton">Upload</button>
+            <button id="uploadPic">Add a pic!</button>
           </Dropzone>
           {this.state.uploadedFileCloudinaryUrl === '' ?
             <div>
               <div className={this.loaderClass}></div>
             </div> :
             <div>
-              <img id="uploadImg" src={this.state.uploadedFileCloudinaryUrl} />
+              <UploadModalContainer imgSrc={this.state.uploadedFileCloudinaryUrl}/>
             </div>}
         </div>
       </div>
     );
   }
 }
+
+// <img id="uploadImg" src={this.state.uploadedFileCloudinaryUrl} />

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170921004752) do
   create_table "pixes", force: :cascade do |t|
     t.string "caption"
     t.integer "author_id", null: false
-    t.string "image_url", null: false
+    t.string "img_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_pixes_on_author_id"

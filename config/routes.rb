@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'react_page#root'
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:index, :create, :show, :edit, :update] do
-      resources :pixes, only: [:index]
+      resources :pixes, only: [:index, :create]
     end
     resource :session, only: [:create, :destroy, :show]
     resources :pixes, only: [:show, :destroy]

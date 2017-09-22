@@ -6,7 +6,8 @@ import { getUserInfo } from '../../actions/user_actions';
 // add pix to state
 
 const mapStateToProps = (state, ownProps) => ({
-  user: state.entities.user
+  user: state.entities.user,
+  currentUserId: state.session.currentUser.id
 });
 
 const mapDispatchToProps =  dispatch => ({

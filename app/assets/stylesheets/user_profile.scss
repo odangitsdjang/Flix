@@ -4,7 +4,7 @@
 
 .userBody {
   padding-top: 7%;
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,7 @@
 
 .userInfo li {
   list-style: none;
+  padding-bottom: 6px;
 }
 .userInfo img {
   height: 150px;
@@ -26,10 +27,51 @@
 }
 
 .userPix {
-  margin-top: 5%;
+  padding-top: 10%;
 }
 
-.myButton {
+// cloudinary div
+.userPix div {
+  width: 131px;
+  height: 45px;
+}
+
+
+.uploadPicForm input {
+  display: block;
+}
+
+.uploadPicForm img {
+  padding: 30px 0px;
+  height: 400px;
+  width: 400px;
+}
+
+.userBody button {
+ background-color:black;
+ -moz-border-radius:13px;
+ -webkit-border-radius:13px;
+ border-radius:13px;
+ border:1px solid #ffffff;
+ display:inline-block;
+ cursor:pointer;
+ color:#ffffff;
+ font-family:Arial;
+ font-size:12px;
+ padding:10px 12px;
+ text-decoration:none;
+
+}
+.userBody button:hover {
+ background-color:$lessBlack3;
+  color: white;
+}
+.userBody button:active {
+ position:relative;
+ top:1px;
+}
+
+#uploadPic {
  background-color:black;
  -moz-border-radius:13px;
  -webkit-border-radius:13px;
@@ -44,11 +86,20 @@
  text-decoration:none;
 
 }
-.myButton:hover {
- background-color:$lessBlack3;
+
+#uploadPic:hover {
+  background-color:$lessBlack3;
   color: white;
 }
-.myButton:active {
- position:relative;
- top:1px;
+#uploadPic:active {
+  position:relative;
+  top:1px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  // display: flex;
+  // justify-content: space-around;
 }

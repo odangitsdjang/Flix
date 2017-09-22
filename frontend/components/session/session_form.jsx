@@ -36,11 +36,11 @@ class SessionForm extends React.Component {
     return this.props.errors.map(err => <li> {err}</li>);
   }
   renderRegisterOrLogin() {
-    return this.props.formType === 'login' ? "Login" : "Register";
+    return this.props.formType === 'login' ? "Login" : "Sign Up";
   }
 
   renderOpposite() {
-    return this.props.formType === 'login' ? "register" : "log in";
+    return this.props.formType === 'login' ? "Sign Up" : "log in";
   }
 
   render () {
@@ -69,7 +69,7 @@ class SessionForm extends React.Component {
 
 
 
-            <input type="submit" value={this.props.formType}/>
+            <input type="submit" value={this.renderRegisterOrLogin()}/>
             <br/>
             <h5>or <Link onClick={this.props.clearErrors} to={this.props.formType==="login" ? "/signup" : "/"}>{this.renderOpposite()}</Link> </h5>
           </form>

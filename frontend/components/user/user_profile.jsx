@@ -1,22 +1,32 @@
 import React from 'react';
 import Cloudinary from './cloudinary';
-import ModalDemo from './uploadModal';
+
 class UserProfile extends React.Component {
   componentDidMount() {
     this.props.getUserInfo(this.props.match.params.userId);
   }
 
-  renderUserInfo(user) {
+  renderUserInfo(user, currentUserId) {
     if (user) {
       return (
         <ul>
-
+          <li>Hello, {user.username}</li>
           <li>How you're feelin: {user.followers.status} </li>
           <li>HOWMANY?? TODO posts </li>
           <li>{user.followers.length} followers </li>
           <li>{user.following.length} following</li>
+          { user ? (currentUserId === user.id ?
+            <li><button className="changePP">Change Profile Pic</button>
+            </li> : "") : "" }
+
         </ul>
       );
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.userId !== this.props.match.params.userId) {
+      this.props.getUserInfo(nextProps.match.params.userId);
     }
   }
 
@@ -25,8 +35,18 @@ class UserProfile extends React.Component {
      return <img src={user.img_url}/>;
   }
 
+  // PixContainer
+  renderPix() {
+    if (this.props.user) {
+      // const pixArray = Object.keys(this.props.user.pix).map(id=>this.props.pix[id]);
+      return this.props.user.pix.map(pic=>(
+        <div><img src={pic.img_url}/> </div>
+      ));
+    }
+  }
+
   render() {
-    const {user} = this.props;
+    const {user, currentUserId} = this.props;
     return (
       <div className="userProfile">
         <div className="userBody">
@@ -35,13 +55,14 @@ class UserProfile extends React.Component {
               {this.renderUserProfilePic(user)}
             </div>
             <div className="textInfo">
-              {this.renderUserInfo(user)}
+              {this.renderUserInfo(user, currentUserId)}
             </div>
           </div>
           <div className="userPix">
-            <div><Cloudinary/></div>
-            <h1>all the pics</h1>
-            <ul>  <li><ModalDemo/> </li> </ul>
+            { user ? (currentUserId === user.id ? <div><Cloudinary/></div> : "") : "" }
+            <div className="grid">
+              { this.renderPix() }
+            </div>
           </div>
         </div>
       </div>
