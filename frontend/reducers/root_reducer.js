@@ -7,6 +7,7 @@ import session from './session_reducer';
 import errors from './errors_reducer';
 import UserReducer from './user_reducer';
 import PixReducer from './pix_reducer';
+import loading from './loading_reducer';
 
 
 // pix: pixReducer,
@@ -16,10 +17,15 @@ const EntitiesReducer = combineReducers({
   pix: PixReducer
 });
 
+const UIReducer = combineReducers({
+  loading
+});
+
 const RootReducer = combineReducers({
   entities: EntitiesReducer,
   session,
-  errors
+  errors,
+  ui: UIReducer
 });
 
 export default RootReducer;

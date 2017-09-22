@@ -53,7 +53,6 @@ export default class Cloudinary extends React.Component {
     });
   }
   render() {
-    console.log(this.state.uploadedFileCloudinaryUrl);
     const { which } = this.props;
     return (
       <div>

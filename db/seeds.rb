@@ -42,3 +42,23 @@ Pix.create(caption:"artsy artsy", author_id: coffee.id, img_url: "http://res.clo
 Pix.create(caption:"you know what it is", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/matt-hoffman-310320.jpg")
 Pix.create(caption:"beans101", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/michal-grosicki-198598.jpg")
 Pix.create(caption:"yum", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051561/coffee/natalie-collins-57855.jpg")
+#
+# Pix.create(caption:"amazing", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116097/scenery-0_wwfhy4.jpg")
+# Pix.create(caption:"wow", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116097/scenery-1_gufbrj.jpg")
+# Pix.create(caption:"3rd upload", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116097/scenery-2_vyy5ku.jpg")
+# Pix.create(caption:"very nice", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116097/scenery-3_muxefn.jpg")
+# Pix.create(caption:"beautiful", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116098/scenery-4_telo68.jpg")
+# Pix.create(caption:"horsey", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116098/scenery-5_xc2teo.jpg")
+# Pix.create(caption:"mm trees", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116098/scenery-6_udtgtp.jpg")
+# Pix.create(caption:"more trees?", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116098/scenery-7_te8c3p.jpg")
+#
+# coffee = User.find_by_username("coffee")
+# coffee.follower_ids = [1,2,3,4,5,6,7,8,10,15,24,40]
+# coffee.following_ids = [1]
+#
+# Pix.create(caption:"beans", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116094/coffee-0_g3lbzl.jpg")
+# Pix.create(caption:"artsy", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116093/coffee-1_iiztmi.jpg")
+# Pix.create(caption:"artsy artsy", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506116093/coffee-2_m9cvk0.jpg")
+# Pix.create(caption:"you know what it is", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/matt-hoffman-310320.jpg")
+# Pix.create(caption:"beans101", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/michal-grosicki-198598.jpg")
+# Pix.create(caption:"yum", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051561/coffee/natalie-collins-57855.jpg")

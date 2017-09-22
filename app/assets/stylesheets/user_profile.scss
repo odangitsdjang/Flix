@@ -152,3 +152,27 @@
   object-fit: cover;
   vertical-align: bottom;
 }
+// OLD
+//
+//
+// .grid {
+//   display: grid;
+//   // 1/3rd
+//   grid-template-columns: repeat(3, 1fr);
+//   grid-gap: 10px;
+//   grid-auto-rows: minmax(100px, auto);
+//   align-items: center;
+//   justify-items: center;
+//
+// }
+//
+//
+// .grid div {
+//   display: flex;
+//
+// }
+//
+// .grid div img {
+//   width:100%;
+//   height:100%;
+// }

@@ -19,6 +19,7 @@ const receivePixErrors = (errors) => ({
   errors
 });
 
+
 export const getPic = (id) => dispatch => (
   PixUtil.getPic(id).then(
     successPic => dispatch(receivePic(successPic)),
@@ -27,6 +28,7 @@ export const getPic = (id) => dispatch => (
 );
 
 export const getPix = (userId) => dispatch => (
+
   PixUtil.getPix(userId).then(
     successPix => dispatch(receivePix(successPix)),
     err => dispatch(receivePixErrors(err.responseJSON))

@@ -38,14 +38,22 @@ class UserProfile extends React.Component {
   }
 
   //<PixContainer key= {pic.id} pic={pic}/>
+  // scale down pictures when fetching from cloudinary url using regex
+
+
   renderPix() {
     if (this.props.user) {
-      return this.props.user.pix.map(pic=>(
-
+      return this.props.user.pix.map(pic=>{
+        let indx = /v\d/.exec(pic.img_url).index;
+        let scaledDownUrl = pic.img_url.slice(0,indx).concat("w_1000,h_1000,c_limit/").concat(pic.img_url.slice(indx));
+        console.log(scaledDownUrl);
+        return (
         <div>
-          <img src={pic.img_url}/>
+
+          <img src={scaledDownUrl}/>
         </div>
-      ));
+        );
+      });
     }
   }
 

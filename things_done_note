@@ -3,3 +3,17 @@
 3. Added rspec, shoulda matchers; added users model/controller, session controller and following model (joins table). Made sure to test that everything here seems to be ok. Updated name to Flix.
 4. Finished back/front auth. Added css. man that took so long. Also added live guard thing to auto reload css/js and auto refresh the page.
 5. Run it with "guard -P livereload"
+6. Uninstall the above because I think it lagged
+7. Implement user show page, starting with buttons to upload
+8. Upload includes cloudinary api and then a modal inside it that opens when it uploads picture successfully
+9. Change profile pic uploads the picture supplied by user and changes the user's img_url to this new link
+10. Use ImageMagick from the command line to resize images so that it doesn't lag my site
+11. Useful command "convert -resize 1000x800\> * coffee.jpg" will resize all images in that folder to coffee-0.jpg, coffee-1.jpg etc.
+12. Cross out above, I found a better method:
+I am going to save the original image and when display in user show page will grab the scaled down (if needed) by adding
+
+"/w_1000,h_1000,c_limit/" in the link like so:
+https://res.cloudinary.com/odangitsdjang/image/upload/w_1000,h_1000,c_limit/v1506117172/juwhzcigbl1zbadpfoi0.png
+ to get the max width/height to be 1000px with its aspects maintained
+
+ 
