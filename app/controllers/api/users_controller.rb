@@ -14,7 +14,8 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # I feel like you should rarely enter here
+  # I feel like you should rarely enter here (will render show a lot
+  # but not actually hit the show function)
   def show
     @user = User.find_by_id(params[:id])
     if @user
@@ -24,12 +25,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # bonus
-  def edit
-    render plain: "EDIT ROUTE"
-  end
-
   def update
-    render plain: "UPDATE ROUTE"
+    @user = User.find_by_id(params[:id])
+    if @user.update_attributes(user_params)
+      render :show
+    else
+      render json: @user.errors.full_messages
+    end
   end
 end

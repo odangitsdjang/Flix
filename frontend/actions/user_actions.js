@@ -20,4 +20,12 @@ export const getUserInfo = (id) => dispatch => (
   )
 );
 
+export const updateUser = (id, property) => dispatch => (
+  UserUtil.updateUser(id, property).then(
+    successUser => dispatch(receiveUser(successUser)),
+    err => dispatch(receiveUserErrors(err.responseJSON))
+  )
+);
+
 window.getUserInfo = getUserInfo;
+window.updateUser = updateUser;

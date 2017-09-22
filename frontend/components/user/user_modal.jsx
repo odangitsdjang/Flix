@@ -60,8 +60,42 @@ class UserModal extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  renderUploadPicture() {
+    return (
+
+    <form className="uploadPicForm" onSubmit={e=> this.createPix(e) }>
+      <img src={this.props.imgSrc}/>
+      <br/>
+      <input name="caption" value={this.state.caption} placeholder="~~Caption~~" onChange={this.updateInput}/>
+      <input type="submit" value="upload!!"/>
+    </form>
+    );
+  }
+
+  renderChangeProfilePicture() {
+    return (
+      <div>
+        <img src={this.props.imgSrc}/>
+        <br/>
+        <input type="button" onClick={()=> this.updatePicture() }value="yes"/>
+        <input type="button" onClick={this.closeModal} value="no"/>
+      </div>
+    );
+  }
+
+  updatePicture() {
+    const property = {img_url: this.props.imgSrc };
+
+    this.props.updateProfile(this.props.authorId, property).
+      then(()=> {
+        this.closeModal();
+        this.props.getUserInfo(this.props.authorId);
+    });
+  }
+
   render() {
     const { which } = this.props;
+    debugger
     return (
       <div>
 
@@ -70,15 +104,13 @@ class UserModal extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="upload modal"
+          contentLabel="uploadModal"
         >
-          <h2 ref={subtitle => {this.subtitle = subtitle;}}> Uploading Picture: </h2>
+      <div className="userPictureModal">
+          <h2 ref={subtitle => {this.subtitle = subtitle;}}>{which === "uploadPic" ? "Upload" : "Are you sure you want to update your picture?" }</h2>
+        { which === "uploadPic" ? this.renderUploadPicture() : this.renderChangeProfilePicture() }
+      </div>
 
-          <form className="uploadPicForm" onSubmit={e=> this.createPix(e) }>
-            <img src={this.props.imgSrc}/>
-            <input name="caption" value={this.state.caption} placeholder="~~Caption~~" onChange={this.updateInput}/>
-            <input type="submit" value="upload!!"/>
-          </form>
         </Modal>
       </div>
     );
