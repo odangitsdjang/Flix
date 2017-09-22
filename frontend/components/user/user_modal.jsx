@@ -52,6 +52,7 @@ class UserModal extends React.Component {
     this.props.createPic(newPic).then(()=> {
       this.closeModal();
       this.props.getUserInfo(newPic.author_id);
+      this.props.resetLink();
     });
   }
 
@@ -90,12 +91,12 @@ class UserModal extends React.Component {
       then(()=> {
         this.closeModal();
         this.props.getUserInfo(this.props.authorId);
+        this.props.resetLink();
     });
   }
 
   render() {
     const { which } = this.props;
-    debugger
     return (
       <div>
 

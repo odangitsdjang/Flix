@@ -15,6 +15,12 @@ export default class Cloudinary extends React.Component {
       dropzoneClass: "cloudinary"
     };
     let loaderClass="hidden";
+    this.resetLink = this.resetLink.bind(this);
+  }
+
+  resetLink() {
+    console.log("resetLink: ");
+    this.setState({uploadedFileCloudinaryUrl: ""});
   }
 
   onImageDrop(files) {
@@ -47,6 +53,7 @@ export default class Cloudinary extends React.Component {
     });
   }
   render() {
+    console.log(this.state.uploadedFileCloudinaryUrl);
     const { which } = this.props;
     return (
       <div>
@@ -62,7 +69,8 @@ export default class Cloudinary extends React.Component {
               <div className={this.loaderClass}></div>
             </div> :
             <div>
-              <UserModalContainer which={this.props.which} imgSrc={this.state.uploadedFileCloudinaryUrl}/>
+              <UserModalContainer resetLink={this.resetLink} which={this.props.which} imgSrc={this.state.uploadedFileCloudinaryUrl}/>
+
             </div>}
         </div>
       </div>

@@ -111,7 +111,8 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-  justify-content: space-around;
+  align-items: center;
+  justify-items: center;
 
 }
 
@@ -125,3 +126,31 @@
   width:100%;
   height:100%;
 }
+
+
+
+
+//
+// section {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+// section::after {
+//   content: '';
+//   flex-grow: 999999999;
+// }
+// div {
+//   margin: 2px;
+//   background-color: violet;
+//   position: relative;
+//   flex-grow: 1;
+//   height: 200px;
+//   overflow: hidden;
+// }
+// img {
+//   min-width: 100%;
+//   max-width: 100%;
+//   height: 200px;
+//   object-fit: cover;
+//   vertical-align: bottom;
+// }
