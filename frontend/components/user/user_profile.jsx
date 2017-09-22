@@ -3,7 +3,7 @@ import Cloudinary from './cloudinary';
 
 class UserProfile extends React.Component {
   componentDidMount() {
-    this.props.getUserInfo(this.props.match.params.userId);
+    this.props.getUserInfo(this.props.match.params.userId).then(()=>"");
   }
 
   renderUserInfo(user, currentUserId) {
@@ -16,8 +16,8 @@ class UserProfile extends React.Component {
           <li>{user.followers.length} followers </li>
           <li>{user.following.length} following</li>
           { user ? (currentUserId === user.id ?
-            <li><button className="changePP">Change Profile Pic</button>
-            </li> : "") : "" }
+            <div className="changePP">
+              <Cloudinary which={"changePP"}/></div>: "") : "" }
 
         </ul>
       );
@@ -35,10 +35,9 @@ class UserProfile extends React.Component {
      return <img src={user.img_url}/>;
   }
 
-  // PixContainer
+  //<PixContainer key= {pic.id} pic={pic}/>
   renderPix() {
     if (this.props.user) {
-      // const pixArray = Object.keys(this.props.user.pix).map(id=>this.props.pix[id]);
       return this.props.user.pix.map(pic=>(
         <div><img src={pic.img_url}/> </div>
       ));
@@ -59,7 +58,9 @@ class UserProfile extends React.Component {
             </div>
           </div>
           <div className="userPix">
-            { user ? (currentUserId === user.id ? <div><Cloudinary/></div> : "") : "" }
+            { user ? (currentUserId === user.id ?
+              <div className="uploadCloudinary">
+                <Cloudinary which={"uploadPic"}/></div> : "") : "" }
             <div className="grid">
               { this.renderPix() }
             </div>

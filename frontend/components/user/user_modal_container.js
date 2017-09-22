@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 
-import UploadModal from './uploadmodal';
+import UserModal from './user_modal';
 
 import { createPic } from '../../actions/pix_actions';
+import { getUserInfo } from '../../actions/user_actions';
 // add pix to state
 
 const mapStateToProps = (state, ownProps) => ({
@@ -10,10 +11,11 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps =  dispatch => ({
+  getUserInfo: (id) => dispatch(getUserInfo(id)),
   createPic: (pic) => dispatch(createPic(pic))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UploadModal);
+)(UserModal);

@@ -12,7 +12,7 @@ const customStyles = {
   }
 };
 
-class UploadModal extends React.Component {
+class UserModal extends React.Component {
   constructor(props) {
     super(props);
 
@@ -49,7 +49,10 @@ class UploadModal extends React.Component {
     e.preventDefault();
     const newPic = { caption: this.state.caption, img_url: this.props.imgSrc,
       author_id: this.props.authorId };
-    this.props.createPic(newPic);
+    this.props.createPic(newPic).then(()=> {
+      this.closeModal();
+      this.props.getUserInfo(newPic.author_id);
+    });
   }
 
   updateInput(e) {
@@ -58,6 +61,7 @@ class UploadModal extends React.Component {
   }
 
   render() {
+    const { which } = this.props;
     return (
       <div>
 
@@ -66,9 +70,9 @@ class UploadModal extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="upload modal"
         >
-          <h2 ref={subtitle => {this.subtitle = subtitle;}}>Add a pic~</h2>
+          <h2 ref={subtitle => {this.subtitle = subtitle;}}> Uploading Picture: </h2>
 
           <form className="uploadPicForm" onSubmit={e=> this.createPix(e) }>
             <img src={this.props.imgSrc}/>
@@ -81,4 +85,4 @@ class UploadModal extends React.Component {
   }
 }
 // <button onClick={this.openModal}>Open Modal</button>
-export default UploadModal;
+export default UserModal;

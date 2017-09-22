@@ -1,5 +1,6 @@
 .userProfile {
   background-color: #fafafa;
+  padding-bottom: 3%;
 }
 
 .userBody {
@@ -31,7 +32,8 @@
 }
 
 // cloudinary div
-.userPix div {
+.userPix .uploadCloudinary {
+  padding-bottom: 5%;
   width: 131px;
   height: 45px;
 }
@@ -98,8 +100,21 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 20% 20% 20% 20% 20%;
-  // display: flex;
-  // justify-content: space-around;
+  // 1/3rd
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  justify-content: space-around;
+
+}
+
+
+.grid div {
+  display: flex;
+
+}
+
+.grid div img {
+  width:100%;
+  height:100%;
 }
