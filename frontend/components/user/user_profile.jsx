@@ -3,6 +3,7 @@ import Cloudinary from './cloudinary';
 
 class UserProfile extends React.Component {
   componentDidMount() {
+    console.log(this.props.loading);
     this.props.getUserInfo(this.props.match.params.userId).then(undefined, () => this.props.history.push("/"));
   }
 
@@ -46,10 +47,9 @@ class UserProfile extends React.Component {
       return this.props.user.pix.map(pic=>{
         let indx = /v\d/.exec(pic.img_url).index;
         let scaledDownUrl = pic.img_url.slice(0,indx).concat("w_1000,h_1000,c_limit/").concat(pic.img_url.slice(indx));
-        console.log(scaledDownUrl);
+
         return (
         <div>
-
           <img src={scaledDownUrl}/>
         </div>
         );
@@ -57,14 +57,27 @@ class UserProfile extends React.Component {
     }
   }
 
+  renderLoader() {
+    return this.props.loading ?
+     (<div className="lds-css ng-scope">
+            <div className="lds-rolling">
+              <div></div>
+            </div>
+          </div>)
+    : "";
+  }
+
   render() {
+
     const {user, currentUserId} = this.props;
     return (
       <div className="userProfile">
         <div className="userBody">
           <div className="userInfo">
             <div className="profilePic">
-              {this.renderUserProfilePic(user)}
+              <div>
+                {this.renderUserProfilePic(user)}
+              </div>
             </div>
             <div className="textInfo">
               {this.renderUserInfo(user, currentUserId)}
@@ -74,6 +87,7 @@ class UserProfile extends React.Component {
             { user ? (currentUserId === user.id ?
               <div className="uploadCloudinary">
                 <Cloudinary which={"uploadPic"}/></div> : "") : "" }
+            { this.renderLoader() }
             <div className="grid">
               { this.renderPix() }
             </div>

@@ -1,18 +1,17 @@
-import { START_LOADING_PIX, RECEIVE_USER } from '../actions/pix_actions';
+import { START_LOADING_PIX, RECEIVE_USER } from '../actions/user_actions';
 
-const defaultState = { loading: false };
+const defaultState = false;
 
-const PixReducer = (state = defaultState, action) => {
+const LoadingReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case START_LOADING_PIX:
-      return { loading: true};
+      return true;
     case RECEIVE_USER:
       return defaultState;
     default:
-      // check if this works
       return state;
   }
 };
 
-export default PixReducer;
+export default LoadingReducer;

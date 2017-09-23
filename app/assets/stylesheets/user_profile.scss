@@ -14,9 +14,8 @@
 
 
 .userInfo {
-  display: flex;
-
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
 }
 
 .userInfo li {
@@ -34,7 +33,7 @@
 
 // cloudinary div
 .userPix .uploadCloudinary {
-  padding-bottom: 5%;
+  padding-bottom: 7%;
   width: 131px;
   height: 45px;
 }
@@ -90,8 +89,13 @@
 }
 
 .profilePic {
-  padding-left: 10%;
+  grid-area: 1 / 8 / span 1 / span 1;
 }
+
+.textInfo {
+  grid-area: 1 / 10 / span 1 / span 1;
+}
+
 .profilePic img {
   width: 150px;
   height:150px;

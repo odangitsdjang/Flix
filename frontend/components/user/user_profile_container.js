@@ -6,6 +6,7 @@ import { getUserInfo } from '../../actions/user_actions';
 // add pix to state
 
 const mapStateToProps = (state, ownProps) => ({
+  loading: state.ui.loading,
   user: state.entities.user,
   currentUserId: state.session.currentUser.id
 });

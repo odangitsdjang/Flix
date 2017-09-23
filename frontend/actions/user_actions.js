@@ -20,7 +20,7 @@ const receiveUserErrors = (errors) => ({
 });
 
 export const getUserInfo = (id) => dispatch => {
-  dispatch(startLoadingPix);
+  dispatch(startLoadingPix());
   return UserUtil.getUserInfo(id).then(
     successUser => dispatch(receiveUser(successUser)),
     err => dispatch(receiveUserErrors(err.responseJSON))
