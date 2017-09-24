@@ -5,9 +5,9 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6}, allow_nil: true
   validates :username, presence: true, uniqueness: true
 
-  # test this
-  has_many :following_tag, primary_key: :id, foreign_key: :follower_id, class_name: :Following
-  has_many :followers_tag, primary_key: :id, foreign_key: :following_id, class_name: :Following
+  # FROM FOLLOWING TABLE:  FOLLOWER_ID FOLLOWS FOLLOWING_ID
+  has_many :following_tag, primary_key: :id, foreign_key: :following_id, class_name: :Following
+  has_many :followers_tag, primary_key: :id, foreign_key: :follower_id, class_name: :Following
   has_many :followers, through: :following_tag, source: :follower
   has_many :following, through: :followers_tag, source: :following
 

@@ -33,4 +33,12 @@ export default class PixUtil {
       url: `api/pixes/${pixId}`
     });
   }
+  // this is a helper method that uses regex to fetch a picture that is
+  // potentially downsized to a maximum dimension of minWidth or minHeight
+  static getPotentiallySmallerPicFromUrl(originalPicUrl, minWidth, minHeight) {
+    let indx = /v\d/.exec(originalPicUrl).index;
+    return originalPicUrl.slice(0,indx).concat(
+      `w_${minWidth},h_${minHeight},c_limit/`).concat(
+      originalPicUrl.slice(indx));
+  }
 }

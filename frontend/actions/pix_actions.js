@@ -4,7 +4,7 @@ export const RECEIVE_PIC = "RECEIVE_PIC";
 export const RECEIVE_PIX = "RECEIVE_PIX";
 export const RECEIVE_PIX_ERRORS = "RECEIVE_PIX_ERRORS";
 
-const receivePic = (pic) => ({
+export const receivePic = (pic) => ({
   type: RECEIVE_PIC,
   pic
 });

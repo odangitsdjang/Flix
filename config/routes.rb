@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create, :show, :update] do
       resources :pixes, only: [:index, :create]
     end
+    resources :following, only: [:create]
+    delete "/following", to: "following#destroy"
+
     resource :session, only: [:create, :destroy, :show]
     resources :pixes, only: [:show, :destroy]
 

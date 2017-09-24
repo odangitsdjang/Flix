@@ -1,0 +1,8 @@
+follow  - front end
+unfollow  - front / back end
+
+BUG: handle going to the link localhost:3000/users/53/pix/1 from home page
+
+BUG: clear pix from store in more ways
+
+BUG: ALL BUGS CREATED WITH THIS NEW PIX SHOW ROUTE

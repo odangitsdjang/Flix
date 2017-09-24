@@ -1,14 +1,16 @@
 import React from 'react';
 import Cloudinary from './cloudinary';
 import PixContainer from '../pix/pix_container';
+import { Link } from 'react-router-dom';
+import PixUtil from  '../../util/pix_util';
 
 class UserProfile extends React.Component {
   componentDidMount() {
-    console.log(this.props.loading);
     this.props.getUserInfo(this.props.match.params.userId).then(undefined, () => this.props.history.push("/"));
   }
 
-  renderUserInfo(user, currentUserId) {
+  renderUserInfo() {
+    const { user, currentUserId } = this.props;
     if (user) {
       return (
         <ul className="userText">
@@ -18,12 +20,27 @@ class UserProfile extends React.Component {
           <li><h5>{user.followers.length} followers </h5> </li>
           <li><h5>{user.following.length} following</h5> </li>
           { user ? (currentUserId === user.id ?
-            <div className="changePP">
-              <Cloudinary which={"changePP"}/></div>: "") : "" }
+            <div>
+              <Cloudinary which={"changePP"}/>
+            </div> :
+            <div>{this.renderProperFollowButton()}</div>
+          ) : "" }
 
         </ul>
       );
     }
+  }
+
+  renderProperFollowButton() {
+    // debugger;
+    const { currentUserId, user } = this.props;
+
+    if (user.followers.includes(currentUserId)) {
+      return <button id="red">Unfollow</button>;
+    } else {
+      return <button id="green">Follow</button>;
+    }
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,26 +51,22 @@ class UserProfile extends React.Component {
     }
   }
 
-  renderUserProfilePic(user) {
+  renderUserProfilePic() {
+    const { user } = this.props;
     if (user)
      return <img className="circle" src={user.img_url}/>;
   }
 
-  // Might need to use the below if I want to scale the app more
-  // <Link to={`/pix/${pic.id}`}/>  and the below in flixx.jsx
-  // <Route path={`/pix/${pic.id}`} render={(props) => (
-  //     <PixContainer {...props} scaledDownUrl={scaledDownUrl} key={pic.id} pic={pic} />
-  //   )}/>
+
+
   renderPix() {
     if (this.props.user) {
       return this.props.user.pix.map(pic=>{
         // scale down pictures when fetching from cloudinary url using regex
-        let indx = /v\d/.exec(pic.img_url).index;
-        let scaledDownUrl = pic.img_url.slice(0,indx).concat("w_1000,h_1000,c_limit/").concat(pic.img_url.slice(indx));
-
+        const scaledDownUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url, 1000, 1000);
         return (
         <div>
-          <PixContainer scaledDownUrl={scaledDownUrl} key={pic.id} pic={pic} />
+            <Link to={`/users/${this.props.user.id}/pix/${pic.id}`}><img src={scaledDownUrl}/></Link>
         </div>
         );
       });
@@ -79,11 +92,11 @@ class UserProfile extends React.Component {
           <div className="userInfo">
             <div className="profilePic">
               <div>
-                {this.renderUserProfilePic(user)}
+                {this.renderUserProfilePic()}
               </div>
             </div>
             <div className="textInfo">
-              {this.renderUserInfo(user, currentUserId)}
+              {this.renderUserInfo()}
             </div>
           </div>
           <div className="userPix">
