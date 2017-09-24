@@ -15,7 +15,7 @@
 
 .userInfo {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .userInfo li {
@@ -33,7 +33,6 @@
 
 // cloudinary div
 .userPix .uploadCloudinary {
-  padding-bottom: 7%;
   width: 131px;
   height: 45px;
 }
@@ -89,11 +88,11 @@
 }
 
 .profilePic {
-  grid-area: 1 / 8 / span 1 / span 1;
+  grid-area: 1 / 5 / span 1 / span 1;
 }
 
 .textInfo {
-  grid-area: 1 / 10 / span 1 / span 1;
+  grid-area: 1 / 7 / span 1 / span 1;
 }
 
 .profilePic img {
@@ -117,7 +116,7 @@
  color:#ffffff;
  font-family:Arial;
  font-size:15px;
- padding:10px 31px;
+ padding: 5px 31px;
  text-decoration:none;
 
 }
@@ -132,6 +131,7 @@
 }
 
 .grid {
+  padding-top: 15px;
   display: flex;
   flex-wrap: wrap;
 }

@@ -18,6 +18,26 @@ class SessionForm extends React.Component {
     this.props.processForm(this.state);
   }
 
+  demoLogin(e) {
+
+    e.preventDefault();
+    const userInfo = ['scenery', 'password'];
+    const userFull = userInfo[0].split("");
+    const passwordFull = userInfo[1].split("");
+    const setFields = () => {
+      if(userFull.length > 0){
+        this.setState({username: this.state.username.concat(userFull.shift())});
+      } else if (passwordFull.length > 0){
+        this.setState({password: this.state.password.concat(passwordFull.shift())});
+      } else {
+        clearInterval(interval);
+        this.props.processForm(this.state);
+      }
+    };
+    const interval = setInterval(setFields, 80);
+
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
       this.props.history.push('/');
@@ -70,6 +90,8 @@ class SessionForm extends React.Component {
 
 
             <input type="submit" value={this.renderRegisterOrLogin()}/>
+            <br/>
+            <input type="submit" onClick={e=>this.demoLogin(e)} value="Demo Login"/>
             <br/>
             <h5>or <Link onClick={this.props.clearErrors} to={this.props.formType==="login" ? "/signup" : "/"}>{this.renderOpposite()}</Link> </h5>
           </form>
