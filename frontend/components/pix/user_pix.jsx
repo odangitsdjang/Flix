@@ -35,24 +35,55 @@ class UserPix extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getPic(this.props.match.params.picId);
+    this.props.getPic(this.props.match.params.picId).then(
+      ()=> this.openModal(), () => this.props.history.push("/"));
     // check path and use modal or not use modal depending on link
-    this.openModal();
 
+  }
+
+  // tries to access a pix that does not exist or out of scope
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.picId !== this.props.match.params.picId) {
+      this.props.getPic(nextProps.match.params.picId).then(
+        undefined, () => this.props.history.push("/"));
+    }
   }
 
   renderPicture() {
+    return (
 
-        return <img src={PixUtil.getPotentiallySmallerPicFromUrl(
-            this.props.pix.img_url, 1900, 1080)}/>;
+    <div className="user-pix">
+      <div className="user-pix inner">
+        <img src={PixUtil.getPotentiallySmallerPicFromUrl(
+            this.props.pix.img_url, 1900, 1080)}/>
+      </div>
+      <div className="pix-info">
+        <div>
+          <img src={this.props.pix.author.img_url} id="circle"/>
+          <ul>
+            <li><h1>{this.props.pix.author.username}</h1></li>
+            <li><h3>{this.props.pix.author.caption}</h3></li>
+          </ul>
+        </div>
+        <div className="CAN ADD COMMENTS LIKES AND OTHER THINGS IN HERE">
+          <h1>comments</h1>
+          <h1>likes</h1>
+        </div>
+      </div>
+    </div>
+    );
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
-    // when closing modal, go back to the previous link (user page)
-
+    // when closing modal, go back to the user link (tried with previous page
+    // but going back to the previous page does not handle it well if refreshed
+    // on the modal )
     this.props.clearPix();
-    this.props.history.goBack();
+    const url = this.props.match.url;
+    const userLink = url.slice(0, /users\/\d+\//.exec(url)[0].length);
+    this.props.history.push(userLink);
+    this.setState({modalIsOpen: false});
+
   }
 
   render() {
@@ -69,10 +100,7 @@ class UserPix extends React.Component {
             style={customStyles}
             contentLabel="pixModal"
             >
-            <div className="userPictureModal">
-              {this.renderPicture()}
-
-            </div>
+            {this.renderPicture()}
           </Modal>
               : this.renderPicture() ) : ""
         }
