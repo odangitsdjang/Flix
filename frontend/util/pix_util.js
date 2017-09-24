@@ -12,6 +12,12 @@ export default class PixUtil {
     });
   }
 
+  static getHomeFeed(userId) {
+    return $.ajax({
+      url: `api/pix/${userId}`
+    });
+  }
+
   static createPic(pic) {
     return $.ajax({
       method: "POST",

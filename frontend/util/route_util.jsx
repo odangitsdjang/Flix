@@ -12,15 +12,6 @@ const Auth = ({component: Component, path, loggedIn}) => (
   )}/>
 );
 
-const RedirectToHomeIfNotLoggedIn = ({ path, loggedIn}) => (
-  <Route path={path} render={(props) => (
-    !loggedIn ? (
-      <Redirect to="/" />
-    ) : ""
-  )}/>
-);
-
-
 const Protected = ({component: Component, path, loggedIn}) => (
   <Route path={path} render={(props) => (
     loggedIn ? (
@@ -38,5 +29,3 @@ const mapStateToProps = state => {
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 export const ProtectedRoute = withRouter(
   connect(mapStateToProps, null)(Protected));
-export const RedirectToHomeIfNotLoggedInRoute = withRouter(
-    connect(mapStateToProps, null)(RedirectToHomeIfNotLoggedIn));

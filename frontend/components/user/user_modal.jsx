@@ -32,7 +32,6 @@ class UserModal extends React.Component {
   }
 
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
     this.subtitle.style.color = '#050606';
   }
 
@@ -42,7 +41,6 @@ class UserModal extends React.Component {
 
   componentDidMount() {
     this.openModal();
-
   }
 
   createPix(e) {
@@ -108,10 +106,10 @@ class UserModal extends React.Component {
           style={customStyles}
           contentLabel="uploadModal"
         >
-      <div className="userPictureModal">
+        <div className="userPictureModal">
           <h2 ref={subtitle => {this.subtitle = subtitle;}}>{which === "uploadPic" ? "Upload" : "Are you sure you want to update your picture?" }</h2>
         { which === "uploadPic" ? this.renderUploadPicture() : this.renderChangeProfilePicture() }
-      </div>
+        </div>
 
         </Modal>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Cloudinary from './cloudinary';
+import PixContainer from '../pix/pix_container';
 
 class UserProfile extends React.Component {
   componentDidMount() {
@@ -38,19 +39,21 @@ class UserProfile extends React.Component {
      return <img className="circle" src={user.img_url}/>;
   }
 
-  //<PixContainer key= {pic.id} pic={pic}/>
-  // scale down pictures when fetching from cloudinary url using regex
-
-
+  // Might need to use the below if I want to scale the app more
+  // <Link to={`/pix/${pic.id}`}/>  and the below in flixx.jsx
+  // <Route path={`/pix/${pic.id}`} render={(props) => (
+  //     <PixContainer {...props} scaledDownUrl={scaledDownUrl} key={pic.id} pic={pic} />
+  //   )}/>
   renderPix() {
     if (this.props.user) {
       return this.props.user.pix.map(pic=>{
+        // scale down pictures when fetching from cloudinary url using regex
         let indx = /v\d/.exec(pic.img_url).index;
         let scaledDownUrl = pic.img_url.slice(0,indx).concat("w_1000,h_1000,c_limit/").concat(pic.img_url.slice(indx));
 
         return (
         <div>
-          <img src={scaledDownUrl}/>
+          <PixContainer scaledDownUrl={scaledDownUrl} key={pic.id} pic={pic} />
         </div>
         );
       });

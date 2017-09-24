@@ -1,5 +1,8 @@
 class Api::PixesController < ApplicationController
-  # note that this returns all pix of a specific user, not all pix from the database
+  # this function is not used because im returning all pix under user when
+  # rendering the user show
+  # this function would have been used if I want to abstract the user pix one level higher
+  # for my redux state (inside entities, instead of entities/users )
   def index
     @user = User.find_by(id: params[:user_id])
     if @user
@@ -9,6 +12,18 @@ class Api::PixesController < ApplicationController
       render json: ["User does not exist"], status: 422
     end
   end
+
+  # note that this returns all pix of a specific user's following, not all pix from the database
+  def following_pix
+    @user = User.find_by(id: params[:user_id])
+    if @user
+      @pixes = @user.following.pixes
+      render :index
+    else
+      render json: ["User does not exist"], status: 422
+    end
+  end
+
 
   def create
     @pix = Pix.new(pix_params)
