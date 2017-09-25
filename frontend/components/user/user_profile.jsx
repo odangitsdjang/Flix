@@ -32,15 +32,19 @@ class UserProfile extends React.Component {
   }
 
   renderProperFollowButton() {
-    // debugger;
-    const { currentUserId, user } = this.props;
+    const { currentUser, user } = this.props;
 
-    if (user.followers.includes(currentUserId)) {
-      return <button id="red">Unfollow</button>;
+    if (currentUser.following.includes(user.id)) {
+      return <button onClick={e=> {e.preventDefault(); this.followingAction("unfollow");}} id="red">Unfollow</button>;
     } else {
-      return <button id="green">Follow</button>;
+      return <button onClick={e=> {e.preventDefault(); this.followingAction("follow");}} id="green">Follow</button>;
     }
+  }
 
+  followingAction(action) {
+    action === "follow" ?
+      this.props.followUser(this.props.currentUserId, this.props.user.id) :
+      this.props.unfollowUser(this.props.currentUserId, this.props.user.id);
   }
 
   componentWillReceiveProps(nextProps) {

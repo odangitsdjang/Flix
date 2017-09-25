@@ -4,7 +4,6 @@ export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 export const START_LOADING_PIX = "START_LOADING_PIX";
 
-
 const startLoadingPix = () => ({
   type: START_LOADING_PIX
 });

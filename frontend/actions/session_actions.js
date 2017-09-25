@@ -3,6 +3,8 @@ import SessionUtil from '../util/session_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SEESION_ERRORS";
+export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
+export const RECEIVE_UNFOLLOW = "RECEIVE_UNFOLLOW";
 
 const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
@@ -16,6 +18,16 @@ export const clearSessionErrors = () => ({
 const receiveSessionErrors = (errors) => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
+});
+
+const receiveFollow = (follow) => ({
+  type: RECEIVE_FOLLOW,
+  follow
+});
+
+const receiveUnfollow = (follow) => ({
+  type: RECEIVE_UNFOLLOW,
+  follow
 });
 
 export const signUp = (user) => dispatch => (
@@ -36,6 +48,20 @@ export const logOut = () => dispatch => (
     (user) => dispatch(receiveCurrentUser(null))
   )
 );
+
+export const followUser = (currentUserId, userToFollowId) => dispatch => (
+  SessionUtil.followUser(currentUserId, userToFollowId).then (
+    successFollow => dispatch(receiveFollow(successFollow))
+  )
+);
+
+export const unfollowUser = (currentUserId, userToFollowId) => dispatch => (
+  SessionUtil.unfollowUser(currentUserId, userToFollowId).then (
+    successFollow => dispatch(receiveUnfollow(successFollow))
+  )
+);
+
+
 window.signUp = signUp;
 window.logIn = logIn;
 window.logOut = logOut;

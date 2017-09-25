@@ -11,12 +11,4 @@ export default class UserUtil {
       data: { id, user: property }
     });
   }
-
-  static followUser(currentUserId, userToFollowId) {
-    return $.ajax({
-      method: "POST",
-      url: "api/following",
-      data: {following: {follower_id: currentUserId, following_id: userToFollowId}}
-    });
-  }
 }

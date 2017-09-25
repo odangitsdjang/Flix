@@ -10,13 +10,15 @@ class Api::FollowingController < ApplicationController
 
   # does not use params[:id]
   def destroy
-    # @f = Following.find_by_follower_id_and_following_id(params[:follower_id], params[:following_id])
-    # if @f
-    #   @f.delete
-    # else
-    #  # should probably not enter here
-    #   render json: ["Could not unfollow"], status: 422
-    # end
+    @f = Following.find_by_follower_id_and_following_id(following_params[:follower_id], following_params[:following_id])
+
+    if @f
+      @f.delete
+      render "api/following/following"
+    else
+     # should probably not enter here
+      render json: ["Could not unfollow"], status: 422
+    end
   end
 
   private

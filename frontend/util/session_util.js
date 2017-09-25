@@ -27,4 +27,21 @@ export default class SessionUtil {
       url: "api/session",
     });
   }
+
+  static followUser(currentUserId, userToFollowId) {
+    return $.ajax({
+      method: "POST",
+      url: "api/following",
+      data: {following: {follower_id: currentUserId, following_id: userToFollowId}}
+    });
+  }
+
+  static unfollowUser(currentUserId, userToFollowId) {
+    return $.ajax({
+      method: "DELETE",
+      url: "api/following",
+      data: {following: {follower_id: currentUserId, following_id: userToFollowId}}
+    });
+  }
+
 }
