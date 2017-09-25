@@ -19,7 +19,6 @@ const receivePixErrors = (errors) => ({
   errors
 });
 
-
 export const getPic = (id) => dispatch => (
   PixUtil.getPic(id).then(
     successPic => dispatch(receivePic(successPic)),
@@ -49,9 +48,24 @@ export const deletePic = (pixId) => dispatch => (
   )
 );
 
+export const getDiscoverPix = () => dispatch => (
+  PixUtil.discoverPix().then(
+    successPix => dispatch(receivePix(successPix)),
+    err => dispatch(receivePixErrors(err.responseJSON))
+  )
+);
+
+export const getHomePix = (id) => dispatch => (
+  PixUtil.homePix(id).then(
+    successPix => dispatch(receivePix(successPix)),
+    err => dispatch(receivePixErrors(err.responseJSON))
+  )
+);
 
 
 window.getPic = getPic;
+window.getDiscoverPix = getDiscoverPix;
+window.getHomePix = getHomePix;
 window.createPic = createPic;
 window.getPix = getPix;
 window.deletePic = deletePic;

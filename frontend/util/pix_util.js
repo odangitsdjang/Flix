@@ -33,6 +33,32 @@ export default class PixUtil {
       url: `api/pixes/${pixId}`
     });
   }
+
+  static discoverPix() {
+    return $.ajax({
+      url: "api/pix"
+    });
+  }
+
+  static homePix(id) {
+    return $.ajax({
+      url: `api/pix/${id}`
+    });
+  }
+
+  static pixObjectOrderedByCreatedDate(pix){
+    if (pix) {
+      const array = Object.keys(pix).map((id)=> {
+        return pix[id];
+      });
+      return array.sort((first,second) => {
+        // compares string value of second and first and makes sure the
+        // highest value (most recently created) is first
+        return second.created_at.localeCompare(first.created_at);
+      });
+    }
+  }
+
   // this is a helper method that uses regex to fetch a picture that is
   // potentially downsized to a maximum dimension of minWidth or minHeight
   static getPotentiallySmallerPicFromUrl(originalPicUrl, minWidth=1000, minHeight=1000) {

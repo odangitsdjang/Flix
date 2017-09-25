@@ -5,7 +5,7 @@ import UserPix from './user_pix';
 import { getPic, receivePic } from '../../actions/pix_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  pix: state.entities.pix,
+  pic: state.entities.pic,
   currentUserId: state.session.currentUser.id
 });
 

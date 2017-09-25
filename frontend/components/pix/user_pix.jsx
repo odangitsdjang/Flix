@@ -46,9 +46,9 @@ class UserPix extends React.Component {
   }
 
   componentDidMount() {
+    // if inside user show page then use and open modal
     this.props.getPic(this.props.match.params.picId).then(
       ()=> this.openModal(), () => this.props.history.push("/"));
-    // check path and use modal or not use modal depending on link
 
   }
 
@@ -66,14 +66,14 @@ class UserPix extends React.Component {
     <div className="user-pix">
       <div className="user-pix inner">
         <img src={PixUtil.getPotentiallySmallerPicFromUrl(
-            this.props.pix.img_url, 1900, 1080)}/>
+            this.props.pic.img_url, 1900, 1080)}/>
       </div>
       <div className="pix-info">
         <div>
-          <img id="circle" src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.pix.author.img_url)} id="circle"/>
+          <img id="circle" src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.pic.author.img_url)} id="circle"/>
           <ul>
-            <li><h1>{this.props.pix.author.username}</h1></li>
-            <li><h3>{this.props.pix.caption}</h3></li>
+            <li><h1>{this.props.pic.author.username}</h1></li>
+            <li><h3>{this.props.pic.caption}</h3></li>
           </ul>
         </div>
         <div className="CAN ADD COMMENTS LIKES AND OTHER THINGS IN HERE">
@@ -102,7 +102,7 @@ class UserPix extends React.Component {
     // else render just the picture itself
     return (
       <div>
-        { this.props.pix ?
+        { this.props.pic ?
           ( /users/.exec(this.props.match.path) ?
           <Modal
             isOpen={this.state.modalIsOpen}
@@ -120,6 +120,4 @@ class UserPix extends React.Component {
     );
   }
 }
-// <img className="showPixSmall" src={this.props.scaledDownUrl} onClick={()=>this.openModal()}/>
 export default UserPix;
-// <img src={this.props.pic.img_url}/>

@@ -3,6 +3,7 @@ import SessionUtil from '../util/session_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SEESION_ERRORS";
+export const CLEAR_PIX = "CLEAR_PIX";
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
 export const RECEIVE_UNFOLLOW = "RECEIVE_UNFOLLOW";
 
@@ -11,8 +12,8 @@ const receiveCurrentUser = (currentUser) => ({
   currentUser
 });
 
-export const clearSessionErrors = () => ({
-  type: CLEAR_SESSION_ERRORS
+export const clearAction = (type) => ({
+  type
 });
 
 const receiveSessionErrors = (errors) => ({
@@ -45,7 +46,10 @@ export const logIn = (user) => dispatch => (
 );
 export const logOut = () => dispatch => (
   SessionUtil.logOut().then(
-    (user) => dispatch(receiveCurrentUser(null))
+    (user) => {
+      dispatch(receiveCurrentUser(null));
+      dispatch(clearAction(CLEAR_PIX));
+    }
   )
 );
 

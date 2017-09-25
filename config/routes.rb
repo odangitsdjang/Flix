@@ -10,8 +10,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :pixes, only: [:show, :destroy]
 
+
+    get '/pix/:user_id', to: 'pixes#following_pix'
+    get '/pix', to: 'pixes#discover_pix'
   end
   # the below route is for home feed, getting pix of the users that current user is following
-  get '/api/pix/:user_id', to: 'pixes#following_pix'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
