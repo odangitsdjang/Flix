@@ -1,14 +1,25 @@
 import React from 'react';
 import Modal from 'react-modal';
-
+import PixUtil from '../../util/pix_util';
 const customStyles = {
+  overlay : {
+    position        : 'fixed',
+    top             : 0,
+    left            : 0,
+    right           : 0,
+    bottom          : 0,
+    backgroundColor : 'rgba(54,70,93,.95)',
+    zIndex          : 10
+  },
   content : {
     top                   : '50%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    padding               : '0',
+    border                : 'none'
   }
 };
 
@@ -64,7 +75,7 @@ class UserModal extends React.Component {
     return (
 
     <form className="uploadPicForm" onSubmit={e=> this.createPix(e) }>
-      <img src={this.props.imgSrc}/>
+      <img src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.imgSrc)}/>
       <br/>
       <input name="caption" value={this.state.caption} placeholder="~~Caption~~" onChange={this.updateInput}/>
       <input type="submit" value="upload!!"/>
@@ -75,10 +86,11 @@ class UserModal extends React.Component {
   renderChangeProfilePicture() {
     return (
       <div>
-        <img src={this.props.imgSrc}/>
+
+        <img src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.imgSrc)}/>
         <br/>
-        <input type="button" onClick={()=> this.updatePicture() }value="yes"/>
-        <input type="button" onClick={this.closeModal} value="no"/>
+        <input type="button" onClick={()=> this.updatePicture() }value="update"/>
+        <input type="button" onClick={this.closeModal} value="cancel"/>
       </div>
     );
   }
@@ -107,7 +119,6 @@ class UserModal extends React.Component {
           contentLabel="uploadModal"
         >
         <div className="userPictureModal">
-          <h2 ref={subtitle => {this.subtitle = subtitle;}}>{which === "uploadPic" ? "Upload" : "Are you sure you want to update your picture?" }</h2>
         { which === "uploadPic" ? this.renderUploadPicture() : this.renderChangeProfilePicture() }
         </div>
 

@@ -12,14 +12,11 @@
  *
  *= require font-awesome
  */
- * {
-   background: transparent;
-  //  background-color: #fafafa;
-   font-family: 'Droid-Sans', 'Open Sans', sans-serif;
- }
+
 
  @import "bootstrap";
  @import "buttons_and_things/*";
+ @import "defaults";
  @import "navbar";
  @import "session_form";
  @import "user_profile";

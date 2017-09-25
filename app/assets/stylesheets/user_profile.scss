@@ -5,7 +5,7 @@
 }
 
 .userBody {
-  padding-top: 7%;
+  padding-top: 2%;
   width: 70%;
   margin: 0 auto;
   display: flex;
@@ -26,9 +26,8 @@
   height: 150px;
   width: 150px;
 }
-
 .userPix {
-  padding-top: 10%;
+  padding-top: 3%;
 }
 
 // cloudinary div
@@ -45,38 +44,10 @@
 }
 .userPictureModal input {
   display: inline-block;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .userPictureModal img {
-  padding: 30px 0px;
-
-  width: 50%;
-  height: 50%;
-}
-
-.userBody button {
- background-color:black;
- -moz-border-radius:13px;
- -webkit-border-radius:13px;
- border-radius:13px;
- border:1px solid #ffffff;
- display:inline-block;
- cursor:pointer;
- color:#ffffff;
- font-family:Arial;
- font-size:14px;
- padding:10px 12px;
- text-decoration:none;
-
-}
-.userBody button:hover {
- background-color:$lessBlack3;
-  color: white;
-}
-.userBody button:active {
- position:relative;
- top:1px;
 }
 
 .userText h1 {
@@ -88,11 +59,11 @@
 }
 
 .profilePic {
-  grid-area: 1 / 5 / span 1 / span 1;
+  grid-area: 1 / 6 / span 1 / span 1;
 }
 
 .textInfo {
-  grid-area: 1 / 7 / span 1 / span 1;
+  grid-area: 1 / 8 / span 1 / span 1;
 }
 
 .profilePic img {
@@ -100,37 +71,47 @@
   height:150px;
 }
 
-.circle {
-  border-radius: 50%;
-}
-
-
 #uploadPic {
- background-color:black;
- -moz-border-radius:13px;
- -webkit-border-radius:13px;
- border-radius:13px;
- border:1px solid #ffffff;
- display:inline-block;
- cursor:pointer;
- color:#ffffff;
- font-family:Arial;
- font-size:15px;
- padding: 5px 31px;
- text-decoration:none;
-
+  background-color:black;
+  -moz-border-radius:13px;
+  -webkit-border-radius:13px;
+  border-radius:13px;
+  border:1px solid #ffffff;
+  display:inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 10px 33px;
+  text-decoration: none;
 }
 
 #uploadPic:hover {
   background-color:$lessBlack3;
   color: white;
 }
-#uploadPic:active {
 
+#changePP {
+  background-color: black;
+  border-radius: 13px;
+  border: 1px solid #ffffff;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 7px 7px;
+  text-decoration: none;
 }
 
+#changePP:hover {
+  background-color:$lessBlack3;
+  color: white;
+}
+
+
 .grid {
-  padding-top: 15px;
+  padding-top: 1%;
   display: flex;
   flex-wrap: wrap;
 }

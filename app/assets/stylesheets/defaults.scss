@@ -1,0 +1,44 @@
+* {
+  background: transparent;
+ //  background-color: #fafafa;
+  font-family: 'Droid-Sans', 'Open Sans', sans-serif;
+  input {
+    border-radius: 3px;
+
+  }
+  input:focus
+  /*select:focus,
+  textarea:focus,
+  button:focus */
+  {
+    outline: none;
+  }
+
+
+
+
+   button {
+   background-color:black;
+   -moz-border-radius:13px;
+   -webkit-border-radius:13px;
+   border-radius:13px;
+   border:1px solid #ffffff;
+   display:inline-block;
+   cursor:pointer;
+   color:#ffffff;
+   font-family:Arial;
+   font-size:14px;
+   padding:10px 12px;
+   text-decoration:none;
+
+  }
+  button:hover {
+   background-color:$lessBlack3;
+    color: white;
+  }
+
+  button:active {
+   position:relative;
+   top:1px;
+  }
+}

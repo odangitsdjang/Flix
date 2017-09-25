@@ -2,13 +2,24 @@ import React from 'react';
 import Modal from 'react-modal';
 import PixUtil from '../../util/pix_util';
 const customStyles = {
+  overlay : {
+    position        : 'fixed',
+    top             : 0,
+    left            : 0,
+    right           : 0,
+    bottom          : 0,
+    backgroundColor : 'rgba(54,70,93,.95)',
+    zIndex          : 10
+  },
   content : {
     top                   : '50%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    padding               : '0',
+    border                : 'none'
   }
 };
 
@@ -59,10 +70,10 @@ class UserPix extends React.Component {
       </div>
       <div className="pix-info">
         <div>
-          <img src={this.props.pix.author.img_url} id="circle"/>
+          <img id="circle" src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.pix.author.img_url)} id="circle"/>
           <ul>
             <li><h1>{this.props.pix.author.username}</h1></li>
-            <li><h3>{this.props.pix.author.caption}</h3></li>
+            <li><h3>{this.props.pix.caption}</h3></li>
           </ul>
         </div>
         <div className="CAN ADD COMMENTS LIKES AND OTHER THINGS IN HERE">

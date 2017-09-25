@@ -35,7 +35,7 @@ export default class PixUtil {
   }
   // this is a helper method that uses regex to fetch a picture that is
   // potentially downsized to a maximum dimension of minWidth or minHeight
-  static getPotentiallySmallerPicFromUrl(originalPicUrl, minWidth, minHeight) {
+  static getPotentiallySmallerPicFromUrl(originalPicUrl, minWidth=1000, minHeight=1000) {
     let indx = /v\d/.exec(originalPicUrl).index;
     return originalPicUrl.slice(0,indx).concat(
       `w_${minWidth},h_${minHeight},c_limit/`).concat(

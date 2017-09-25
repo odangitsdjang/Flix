@@ -1,14 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// const sessionLinks = () => (
-//   <nav>
-//     <Link to="/">Login</Link>
-//     &nbsp;or&nbsp;
-//     <Link to="/signup">Sign up!</Link>
-//   </nav>
-// );
-
 const logOutNav = (logout) => (
   <li>
     <button className="logout" onClick={( (e)=> {
@@ -17,7 +9,7 @@ const logOutNav = (logout) => (
       })}> Log Out</button>
   </li>
 );
-
+// <Link to={`/users/${currentUser.id}`}>Profile</Link>
 const profileNav = (currentUser) => (
   <li>
     <Link to={`/users/${currentUser.id}`}>Profile</Link>
@@ -36,7 +28,7 @@ const NavBar = ({ currentUser, logout }) => (
   <nav className="headerNav">
     <div>
       <ul className="header">
-        <Link to="/" className="logo">Flix</Link>
+        <li><a className="logo" href="#/">Flix</a></li>
         <li> Discover </li>
         <li id="searchLi">
           <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>

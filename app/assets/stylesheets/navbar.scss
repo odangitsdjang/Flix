@@ -3,10 +3,12 @@
 .headerNav {
   border-bottom: 1px solid #efefef;
   background-color: white;
+  height: 65px;
 }
 
 .headerNav div{
   width: 90%;
+  height: 100%;
   margin: 0 auto;
 }
 .headerNav * {
@@ -34,6 +36,7 @@
   display: flex;
   font-size: 16px;
   width: 100%;
+  height: 100%;
   margin-bottom: 0;
 }
 
@@ -42,11 +45,17 @@
   margin: auto 0;
   padding-right: 20px;
   padding-left: 30px;
+  font-size: 19px;
 }
 
 .header .logo {
-  font-size: 32px;
+  font-size: 42px;
+  font-family: 'Baloo Thambi', cursive;
   font-weight: 400;
+}
+
+.header li a:hover{
+  color: $hoverBlue;
 }
 
 
@@ -76,10 +85,14 @@
  	font-size:14px;
  	padding:10px 15px;
  	text-decoration:none;
+  transition: color 0.4s;
+  transition: background-color 0.4s;
 
  }
  .logout:hover {
- 	background-color:$lessBlack2;
+ 	background-color:$hoverBlue;
+  color: white;
+
  }
  .logout:active {
  	position:relative;
