@@ -6,7 +6,7 @@ import PixUtil from  '../../util/pix_util';
 
 class UserProfile extends React.Component {
   componentDidMount() {
-    this.props.getUserInfo(this.props.match.params.userId).then(undefined, () => this.props.history.push("/"));
+    this.props.getUserInfo(this.props.currentUserId).then(undefined, () => this.props.history.push("/"));
   }
 
   renderUserInfo() {
@@ -50,7 +50,7 @@ class UserProfile extends React.Component {
   componentWillReceiveProps(nextProps) {
     // then handles when you try to access a user id that does not exist
     //  you will redirect to the home page
-    if (nextProps.match.params.userId !== this.props.match.params.userId) {
+    if (nextProps.match.params.username !== this.props.currentUser.username) {
       this.props.getUserInfo(nextProps.match.params.userId).then(undefined, () => this.props.history.push("/"));
     }
   }
@@ -70,7 +70,7 @@ class UserProfile extends React.Component {
         const scaledDownUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
         return (
         <div>
-            <Link to={`/users/${this.props.user.id}/pix/${pic.id}`}><img src={scaledDownUrl}/></Link>
+            <Link to={`/users/${this.props.user.username}/pix/${pic.id}`}><img src={scaledDownUrl}/></Link>
         </div>
         );
       });

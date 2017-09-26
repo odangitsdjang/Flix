@@ -91,7 +91,7 @@ class UserPix extends React.Component {
     // on the modal )
     this.props.clearPix();
     const url = this.props.match.url;
-    const userLink = url.slice(0, /users\/\d+\//.exec(url)[0].length);
+    const userLink = url.slice(0, /users\/\w+\//.exec(url)[0].length);
     this.props.history.push(userLink);
     this.setState({modalIsOpen: false});
 

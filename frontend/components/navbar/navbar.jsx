@@ -12,7 +12,7 @@ const logOutNav = (logout) => (
 // <Link to={`/users/${currentUser.id}`}>Profile</Link>
 const profileNav = (currentUser) => (
   <li>
-    <Link to={`/users/${currentUser.id}`}>Profile</Link>
+    <Link to={`/users/${currentUser.username}`}>Profile</Link>
   </li>
 );
 
