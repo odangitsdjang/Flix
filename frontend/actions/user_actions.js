@@ -18,9 +18,9 @@ const receiveUserErrors = (errors) => ({
   errors
 });
 
-export const getUserInfo = (id) => dispatch => {
+export const getUserInfo = (username) => dispatch => {
   dispatch(startLoadingPix());
-  return UserUtil.getUserInfo(id).then(
+  return UserUtil.getUserInfo(username).then(
     successUser => dispatch(receiveUser(successUser)),
     err => dispatch(receiveUserErrors(err.responseJSON))
   );

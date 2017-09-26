@@ -1,7 +1,7 @@
 export default class UserUtil {
-  static getUserInfo(id) {
+  static getUserInfo(username) {
     return $.ajax({
-      url: `api/users/${id}`
+      url: `api/users/${username}`
     });
   }
   static updateUser(id, property) {

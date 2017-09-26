@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 import PixUtil from '../../util/pix_util';
 const customStyles = {
   overlay : {
@@ -72,7 +73,7 @@ class UserPix extends React.Component {
         <div>
           <img id="circle" src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.pic.author.img_url)} id="circle"/>
           <ul>
-            <li><h1>{this.props.pic.author.username}</h1></li>
+            <li> <Link to={`/users/${this.props.pic.author.username}`}><h1>{this.props.pic.author.username}</h1> </Link> </li>
             <li><h3>{this.props.pic.caption}</h3></li>
           </ul>
         </div>
@@ -91,6 +92,7 @@ class UserPix extends React.Component {
     // on the modal )
     this.props.clearPix();
     const url = this.props.match.url;
+    // add logic for grid from the discover
     const userLink = url.slice(0, /users\/\w+\//.exec(url)[0].length);
     this.props.history.push(userLink);
     this.setState({modalIsOpen: false});

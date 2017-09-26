@@ -14,10 +14,8 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # I feel like you should rarely enter here (will render show a lot
-  # but not actually hit the show function)
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_username(params[:id])
     if @user
       render :show
     else

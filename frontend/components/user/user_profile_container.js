@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps =  dispatch => ({
-  getUserInfo: (id) => dispatch(getUserInfo(id)),
+  getUserInfo: (username) => dispatch(getUserInfo(username)),
   followUser: (currentUserId, userToFollowId) =>
     dispatch(followUser(currentUserId, userToFollowId)),
   unfollowUser: (currentUserId, userToFollowId) =>

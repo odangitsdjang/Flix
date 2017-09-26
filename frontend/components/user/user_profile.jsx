@@ -6,7 +6,7 @@ import PixUtil from  '../../util/pix_util';
 
 class UserProfile extends React.Component {
   componentDidMount() {
-    this.props.getUserInfo(this.props.currentUserId).then(undefined, () => this.props.history.push("/"));
+    this.props.getUserInfo(this.props.match.params.username).then(undefined, () => this.props.history.push("/"));
   }
 
   renderUserInfo() {
@@ -50,8 +50,8 @@ class UserProfile extends React.Component {
   componentWillReceiveProps(nextProps) {
     // then handles when you try to access a user id that does not exist
     //  you will redirect to the home page
-    if (nextProps.match.params.username !== this.props.currentUser.username) {
-      this.props.getUserInfo(nextProps.match.params.userId).then(undefined, () => this.props.history.push("/"));
+    if (!this.props.user || nextProps.match.params.username !== this.props.user.username) {
+      this.props.getUserInfo(nextProps.match.params.username).then(undefined, () => this.props.history.push("/"));
     }
   }
 

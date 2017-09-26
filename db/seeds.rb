@@ -12,6 +12,8 @@ end
 User.create(username: "user", password:"password", email: "user@gmail.com" )
 User.create(username: "test", password:"password", email: "test@gmail.com" )
 User.create(username: "ilovedavid", password: "iloveyou", email:"somerandomcrap@somerandomcrap@gmail.com")
+Pix.create(caption:"iloveya<3", author_id: 3, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506401632/IMG_2206_zmcudg.jpg")
+Pix.create(caption:"iloveya2<3", author_id: 3, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506397582/IMG_2058_rs4l7c.jpg")
 testUser = User.find_by_username("test")
 testUser.follower_ids = [1,2,3,4,5,6,7,8,9,10,15,20,13]
 testUser.following_ids = [1,2,3,4,5,6,7,8,9,10]
