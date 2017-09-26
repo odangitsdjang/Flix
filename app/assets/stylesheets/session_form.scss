@@ -49,8 +49,9 @@ $INPUT_WIDTH: 300px;
   padding: 45px 75px 50px 100px;
   color: #050606;
   border: 1px solid $grey;
-    background: white;
-    opacity: 0.9;
+  background: white;
+  opacity: 0.9;
+  // border-radius: 10%;
 }
 
 .session input {
@@ -87,6 +88,7 @@ $INPUT_WIDTH: 300px;
 }
 .session form input {
   padding: 0 30px;
+  padding-top: 6px;
 }
 
 .session .email {

@@ -6,9 +6,14 @@ import { Link } from 'react-router-dom';
 import PixUtil from  '../../util/pix_util';
 
 class HomeIndex extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     const discoverPath = /discover/.exec(this.props.match.path);
-    discoverPath ? this.props.getDiscoverPix().then(undefined, () => this.props.history.push("/"))
+
+    this.state = { view: discoverPath ? "grid" : "individual" };
+  }
+  componentDidMount() {
+    this.state.view === "grid" ? this.props.getDiscoverPix().then(undefined, () => this.props.history.push("/"))
     : this.props.getHomePix(this.props.currentUserId).then(undefined, () => this.props.history.push("/"));
   }
 
@@ -25,6 +30,22 @@ class HomeIndex extends React.Component {
         );
       });
     }
+  }
+
+  renderGrid() {
+    return (
+      <div className="grid">
+        {this.renderPix()}
+      </div>
+    );
+  }
+
+  renderIndividual() {
+    return (
+      <div className="individual">
+        {this.renderPix()}
+      </div>
+    );
   }
 
   renderLoader() {
@@ -45,9 +66,7 @@ class HomeIndex extends React.Component {
         <div className="userBody">
           <div className="userPix">
             { this.renderLoader() }
-            <div className="grid">
-              { this.renderPix() }
-            </div>
+            {this.renderGrid()}
           </div>
         </div>
       </div>
