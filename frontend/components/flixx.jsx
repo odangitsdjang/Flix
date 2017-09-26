@@ -22,7 +22,7 @@ const Flixx = (props) => {
         <HomeRoute exact path="/" component1={HomeContainer} component2={SessionFormContainer}/>
         <AuthRoute exact path="/signup" component={SessionFormContainer}/>
         <ProtectedRoute exact path="/discover" component={HomeContainer}/>
-        <ProtectedRoute exact path='/users/:userId' component={UserProfileContainer}/>
+        <ProtectedRoute path='/users/:userId' component={UserProfileContainer}/>
         <ProtectedRoute exact path='/pix/:picId' component={PixContainer}/>
 
       </Switch>

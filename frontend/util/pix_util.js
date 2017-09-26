@@ -34,9 +34,9 @@ export default class PixUtil {
     });
   }
 
-  static discoverPix() {
+  static discoverPix(id) {
     return $.ajax({
-      url: "api/pix"
+      url: `api/pixs/${id}`
     });
   }
 

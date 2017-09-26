@@ -13,8 +13,7 @@ class HomeIndex extends React.Component {
     this.state = { view: discoverPath ? "grid" : "individual" };
   }
   componentDidMount() {
-    this.state.view === "grid" ? this.props.getDiscoverPix().then(undefined, () => this.props.history.push("/"))
-    : this.props.getHomePix(this.props.currentUserId).then(undefined, () => this.props.history.push("/"));
+    this.props.getPix(this.props.currentUserId).then(undefined, () => this.props.history.push("/"));
   }
 
   // <Link to={`/users/${this.props.user.id}/pix/${pic.id}`}><img src={scaledDownUrl}/></Link>

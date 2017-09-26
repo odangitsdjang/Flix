@@ -9,10 +9,12 @@ const mapStateToProps = (state, ownProps) => ({
   currentUserId: state.session.currentUser.id
 });
 
-const mapDispatchToProps =  (dispatch, ownProps) => ({
-  getDiscoverPix: () => dispatch(getDiscoverPix()),
-  getHomePix: (id) => dispatch(getHomePix(id))
-});
+const mapDispatchToProps =  (dispatch, ownProps) => {
+  const properAction = /discover/.exec(ownProps.match.path) ? getDiscoverPix : getHomePix ;
+  return {
+    getPix: (id) => dispatch(properAction(id))
+  };
+};
 
 export default connect(
   mapStateToProps,

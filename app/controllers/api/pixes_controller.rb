@@ -25,7 +25,7 @@ class Api::PixesController < ApplicationController
   end
 
   def discover_pix
-    @pixes = Pix.all
+    @pixes = Pix.where.not(author_id: params[:current_user_id])
     render :index
   end
 

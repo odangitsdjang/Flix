@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 
     get '/pix/:user_id', to: 'pixes#following_pix'
-    get '/pix', to: 'pixes#discover_pix'
+    get '/pixs/:current_user_id', to: 'pixes#discover_pix'
   end
   # the below route is for home feed, getting pix of the users that current user is following
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -48,8 +48,8 @@ export const deletePic = (pixId) => dispatch => (
   )
 );
 
-export const getDiscoverPix = () => dispatch => (
-  PixUtil.discoverPix().then(
+export const getDiscoverPix = (id) => dispatch => (
+  PixUtil.discoverPix(id).then(
     successPix => dispatch(receivePix(successPix)),
     err => dispatch(receivePixErrors(err.responseJSON))
   )
