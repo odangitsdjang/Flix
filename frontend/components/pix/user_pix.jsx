@@ -2,6 +2,10 @@ import React from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import PixUtil from '../../util/pix_util';
+// This component can be accessed in  many different ways:
+// 1. Clicking a picture from a user's page,
+// 2. Accessing pix/1 in the url
+// 3. Clicking a picture in discover feed
 const customStyles = {
   overlay : {
     position        : 'fixed',
@@ -48,17 +52,20 @@ class UserPix extends React.Component {
 
   componentDidMount() {
     // if inside user show page then use and open modal
-    this.props.getPic(this.props.match.params.picId).then(
-      ()=> this.openModal(), () => this.props.history.push("/"));
-
+    // if check is for when it's clicked NOT from discover/home feed
+    if (!this.props.pic) {
+      this.props.getPic(this.props.match.params.picId).then(
+        ()=> this.openModal(), () => this.props.history.push("/"));
+    }
   }
 
   // tries to access a pix that does not exist or out of scope
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.picId !== this.props.match.params.picId) {
-      this.props.getPic(nextProps.match.params.picId).then(
-        undefined, () => this.props.history.push("/"));
-    }
+    if (nextProps.path !== "/discover")
+      if (nextProps.match.params.picId !== this.props.match.params.picId) {
+        this.props.getPic(nextProps.match.params.picId).then(
+          undefined, () => this.props.history.push("/"));
+      }
   }
 
   renderPicture() {
@@ -78,8 +85,7 @@ class UserPix extends React.Component {
           </ul>
         </div>
         <div className="CAN ADD COMMENTS LIKES AND OTHER THINGS IN HERE">
-          <h1>comments</h1>
-          <h1>likes</h1>
+
         </div>
       </div>
     </div>
@@ -90,32 +96,51 @@ class UserPix extends React.Component {
     // when closing modal, go back to the user link (tried with previous page
     // but going back to the previous page does not handle it well if refreshed
     // on the modal )
-    this.props.clearPix();
-    const url = this.props.match.url;
-    // add logic for grid from the discover
-    const userLink = url.slice(0, /users\/\w+\//.exec(url)[0].length);
-    this.props.history.push(userLink);
+    if (/users/.exec(this.props.path)) {
+      this.props.clearPix();
+      const url = this.props.match.url;
+      // add logic for grid from the discover
+      const userLink = url.slice(0, /users\/\w+\//.exec(url)[0].length);
+      this.props.history.push(userLink);
+    }
     this.setState({modalIsOpen: false});
 
   }
-
+  routeProperly() {
+    if (/users/.exec(this.props.path)) {
+      return (<Modal
+        isOpen={this.state.modalIsOpen}
+        onAfterOpen={this.afterOpenModal}
+        onRequestClose={this.closeModal}
+        style={customStyles}
+        contentLabel="pixModal"
+        >
+        {this.renderPicture()}
+      </Modal>);
+    } else if (this.props.path==="/discover") {
+      return (
+      <div>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="pixModal"
+          >
+          {this.renderPicture()}
+        </Modal>
+        <img src={this.props.scaledDownUrl} onClick={this.openModal}/>
+      </div>);
+    } else
+     this.renderPicture();
+  }
   render() {
     // if it matches the path from user show page, render modal
     // else render just the picture itself
     return (
       <div>
         { this.props.pic ?
-          ( /users/.exec(this.props.match.path) ?
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal}
-            style={customStyles}
-            contentLabel="pixModal"
-            >
-            {this.renderPicture()}
-          </Modal>
-              : this.renderPicture() ) : ""
+          this.routeProperly() : ""
         }
 
       </div>

@@ -5,6 +5,7 @@ import PixUtil from '../../util/pix_util';
 import { getPic, receivePic, getDiscoverPix, getHomePix } from '../../actions/pix_actions';
 
 const mapStateToProps = (state, ownProps) => ({
+  loading: state.ui.loading,
   pix: PixUtil.pixObjectOrderedByCreatedDate(state.entities.pix),
   currentUserId: state.session.currentUser.id
 });

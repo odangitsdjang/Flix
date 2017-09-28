@@ -1,6 +1,5 @@
 import React from 'react';
 import Cloudinary from './cloudinary';
-import PixContainer from '../pix/pix_container';
 import { Link } from 'react-router-dom';
 import PixUtil from  '../../util/pix_util';
 

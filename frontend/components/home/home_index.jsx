@@ -1,6 +1,5 @@
 
 import React from 'react';
-// import Cloudinary from './cloudinary';
 import PixContainer from '../pix/pix_container';
 import { Link } from 'react-router-dom';
 import PixUtil from  '../../util/pix_util';
@@ -17,6 +16,8 @@ class HomeIndex extends React.Component {
   }
 
   // <Link to={`/users/${this.props.user.id}/pix/${pic.id}`}><img src={scaledDownUrl}/></Link>
+  // <img src={scaledDownUrl}/>
+  //
   renderPix() {
     if (this.props.pix) {
       return this.props.pix.map(pic=>{
@@ -24,7 +25,7 @@ class HomeIndex extends React.Component {
         const scaledDownUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
         return (
         <div>
-            <img src={scaledDownUrl}/>
+          <PixContainer scaledDownUrl={scaledDownUrl} pic={pic} path={this.props.match.path}/>
         </div>
         );
       });
@@ -32,6 +33,7 @@ class HomeIndex extends React.Component {
   }
 
   renderGrid() {
+
     return (
       <div className="grid">
         {this.renderPix()}
@@ -58,14 +60,13 @@ class HomeIndex extends React.Component {
   }
 
   render() {
-
     const {user, currentUserId} = this.props;
     return (
       <div className="userProfile">
         <div className="userBody">
           <div className="userPix">
             { this.renderLoader() }
-            {this.renderGrid()}
+            { this.renderGrid() }
           </div>
         </div>
       </div>

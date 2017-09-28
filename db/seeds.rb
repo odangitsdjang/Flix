@@ -11,9 +11,7 @@ end
 
 User.create(username: "user", password:"password", email: "user@gmail.com" )
 User.create(username: "test", password:"password", email: "test@gmail.com" )
-User.create(username: "ilovedavid", password: "iloveyou", email:"somerandomcrap@somerandomcrap@gmail.com")
-Pix.create(caption:"iloveya<3", author_id: 3, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506401632/IMG_2206_zmcudg.jpg")
-Pix.create(caption:"iloveya2<3", author_id: 3, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506397582/IMG_2058_rs4l7c.jpg")
+
 testUser = User.find_by_username("test")
 testUser.follower_ids = [1,2,3,4,5,6,7,8,9,10,15,20,13]
 testUser.following_ids = [1,2,3,4,5,6,7,8,9,10]
@@ -44,3 +42,7 @@ Pix.create(caption:"artsy artsy", author_id: coffee.id, img_url: "http://res.clo
 Pix.create(caption:"you know what it is", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/matt-hoffman-310320.jpg")
 Pix.create(caption:"beans101", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/michal-grosicki-198598.jpg")
 Pix.create(caption:"yum", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051561/coffee/natalie-collins-57855.jpg")
+
+User.create(username: "ilovedavid", password: "iloveyou", email:"somerandomcrap@somerandomcrap@gmail.com")
+Pix.create(caption:"iloveya<3", author_id: 3, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506397582/IMG_2058_rs4l7c.jpg")
+User.find_by_username("ilovedavid").following_ids= [3];
