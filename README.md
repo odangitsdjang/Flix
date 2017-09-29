@@ -8,11 +8,10 @@ This app has plenty of features including, but not limited to:
 
 1. [Safe user authentication](#safe-user-authentication)
 2. [Customizable user page](#customizable-user-page)
-  - [Follow others](#follow-others)
+    - [Follow others](#follow-others)
 3. [Upload pix (pictures)](#upload-pix)
 4. [Discover others](#discover-others)
-  - [Search other users](#search-other-users)
-  - [Discover pictures uploaded by other users](#discover-pictures)
+    - [Search other users](#search-other-users)
 5. [Custom home page](#custom-home-page)
 
 ## Safe User Authentication
@@ -37,8 +36,8 @@ end
 
 When a user creates a profile using the signup form, a unique user is created and stored into the database if that username doesn't already exist.
 
-The information on this user will persist through time, as you would expect in any web application. The user can find other users through [searching users](TODO)
-and change their profile picture from the default one using [change profile picture](TODO).
+The information on this user will persist through time, as you would expect in any web application. The user can find other users through [searching users](#search-other-users)
+and change their profile picture from the default one using [change profile picture](#upload-pix).
 
 ### Follow Others
 Through a multitude of methods, you can find other users. After finding another user, if you wish to see all their most recent uploads in your [home page](TODO), then you're just one click away. Click that green follow button! Of course, if you are annoyed with a certain user posting too many pix or with the quality of their pix, then you're one click away from never seeing them again too!
@@ -63,3 +62,12 @@ getPotentiallySmallerPicFromUrl(originalPicUrl, minWidth=1000, minHeight=1000) {
 }
 ```
 The link to grab the picture is guaranteed to have "/v{andsomenumbers}" in the link so I took advantage of this by finding the index of where that is and shovelling in some string into the link.
+
+## Discover Others
+Clicking on the discover button on the navbar will allow you to find photos uploaded by other users!
+
+### Search Other Users
+The nifty search bar up on the top allows you to find other users!
+
+## Custom Home Page
+As mentioned before, the user's page will be filled only with pix of people that you follow

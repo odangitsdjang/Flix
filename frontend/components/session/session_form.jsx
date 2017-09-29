@@ -21,6 +21,7 @@ class SessionForm extends React.Component {
   demoLogin(e) {
 
     e.preventDefault();
+    this.setState({username: "", password: ""});
     const userInfo = ['scenery', 'password'];
     const userFull = userInfo[0].split("");
     const passwordFull = userInfo[1].split("");
