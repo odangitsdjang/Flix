@@ -64,8 +64,3 @@ export const unfollowUser = (currentUserId, userToFollowId) => dispatch => (
     successFollow => dispatch(receiveUnfollow(successFollow))
   )
 );
-
-
-window.signUp = signUp;
-window.logIn = logIn;
-window.logOut = logOut;

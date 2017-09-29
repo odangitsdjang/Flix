@@ -1,4 +1,4 @@
-.searchResults {
+#search-results {
   // logo:118 + search-padding-left:30
   left: 148px;
   position: relative;
@@ -6,8 +6,9 @@
   min-width: 300px;
   width: 80%;
   // box-sizing: border-box;
-  display: flex;
+  display: none;
   flex-direction: column;
+  top: 100px;
 
 }
 

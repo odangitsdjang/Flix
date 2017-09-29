@@ -8,9 +8,10 @@
     padding: 2%;
     background-color: white;
     width: 100%;
+    border: 1px solid rgb(245,245,245);
     .profile-pic {
-      width: 75px;
-      height: 75px;
+      width: 70px;
+      height: 70px;
     }
     a {
       color: black;
@@ -20,6 +21,9 @@
 
     a:hover {
       color: $hoverBlue;
+    }
+    h2 {
+      font-size: 30px;
     }
 
     h4{

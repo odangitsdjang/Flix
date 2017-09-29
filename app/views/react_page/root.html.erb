@@ -1,12 +1,13 @@
 <div id="outer">
-  <script type="text/javascript">
+
+  <div id="root">
+    <script type="text/javascript">
     <% if logged_in? %>
     window.currentUser = <%= render("api/users/user.json.jbuilder",
     user: current_user).html_safe %>
     <% end %>
-  </script>
+    </script>
 
-  <div id="root">
     replaced by react
   </div>
 

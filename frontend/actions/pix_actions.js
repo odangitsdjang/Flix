@@ -61,15 +61,3 @@ export const getHomePix = (id) => dispatch => (
     err => dispatch(receivePixErrors(err.responseJSON))
   )
 );
-
-
-window.getPic = getPic;
-window.getDiscoverPix = getDiscoverPix;
-window.getHomePix = getHomePix;
-window.createPic = createPic;
-window.getPix = getPix;
-window.deletePic = deletePic;
-
-
-// const pix = { caption: "testing", author_id: "1",
-//   img_url:"http://res.cloudinary.com/odangitsdjang/image/upload/v1506028221/d5vcqxr53uyrq5fglvoo.svg" };

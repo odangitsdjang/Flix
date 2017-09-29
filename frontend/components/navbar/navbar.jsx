@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchContainer from './search_container';
+import SearchResults from './search_results';
 
 const logOutNav = (logout) => (
   <li>
@@ -23,24 +25,39 @@ const greetingWithName = (currentUser, logout) => (
 	</hgroup>
 );
 
-const NavBar = ({ currentUser, logout }) => (
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {searchRes: ""};
+    this.setSearchRes = this.setSearchRes.bind(this);
+  }
+  setSearchRes(values) {
+    this.setState({searchRes: values});
+  }
+  render() {
+    const { currentUser, logout } = this.props;
+    return (
+      <div>
+        <nav className="headerNav">
+          <div>
+            <ul className="header">
+              <li><a className="logo" href="#/">Flix</a></li>
+              <li id="search-li">
+                <SearchContainer setSearchRes={this.setSearchRes} />
+              </li>
+              <li id="discover"> <a href="#/discover">Discover</a> </li>
+              { currentUser ? profileNav(currentUser) : "" }
+              { currentUser ? logOutNav(logout) : "" }
+            </ul>
+          </div>
+        </nav>
+        <div>
+          <SearchResults searchRes={this.state.searchRes}/>
+        </div>
+      </div>
 
-  <nav className="headerNav">
-    <div>
-      <ul className="header">
-        <li><a className="logo" href="#/">Flix</a></li>
-        <li id="search-li">
-          <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
-        </li>
-        <li id="discover"> <a href="#/discover">Discover</a> </li>
-        { currentUser ? profileNav(currentUser) : "" }
-        { currentUser ? logOutNav(logout) : "" }
+    );
+  }
+}
 
-
-      </ul>
-    </div>
-  </nav>
-);
-// currentUser ? greetingWithName(currentUser, logout) : sessionLinks()
-// TODO change discover to <Link to="/discover">Discover</Link>
 export default NavBar;

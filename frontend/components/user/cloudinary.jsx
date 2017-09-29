@@ -61,7 +61,7 @@ export default class Cloudinary extends React.Component {
             multiple={false}
             accept="image/*"
             onDrop={this.onImageDrop.bind(this)}>
-            <button id={which}>{which === "uploadPic" ? "Upload" : "Change Profile Pic"  }</button>
+            <button id={which}>{which === "uploadPic" ? "Upload" : "Change Profile Picture"  }</button>
           </Dropzone>
           {this.state.uploadedFileCloudinaryUrl === '' ?
             <div>

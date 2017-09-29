@@ -4,7 +4,7 @@ import { HomeRoute, AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 import NavBarContainer from './navbar/navbar_container';
-import FooterContainer from './footer/footer_container';
+import Footer from './footer/footer';
 import SessionFormContainer from './session/session_form_container';
 import UserProfileContainer from './user/user_profile_container';
 import PixContainer from './pix/pix_container';
@@ -31,7 +31,7 @@ const Flixx = (props) => {
 
 
 
-      <Route path='/' component={FooterContainer}/>
+      <Route path='/' component={Footer}/>
     </div>
   );
 };

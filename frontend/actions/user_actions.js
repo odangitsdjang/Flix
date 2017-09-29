@@ -1,6 +1,7 @@
 import UserUtil from '../util/user_util';
 
 export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_SEARCH = "RECEIVE_SEARCH";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 export const START_LOADING_PIX = "START_LOADING_PIX";
 
@@ -11,6 +12,11 @@ const startLoadingPix = () => ({
 const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user
+});
+
+const receiveSearchUsers = (users) => ({
+  type: RECEIVE_SEARCH,
+  users
 });
 
 const receiveUserErrors = (errors) => ({
@@ -33,5 +39,9 @@ export const updateUser = (id, property) => dispatch => (
   )
 );
 
-window.getUserInfo = getUserInfo;
-window.updateUser = updateUser;
+export const searchForUser = (letters) => dispatch => (
+  UserUtil.searchForUser(letters).then(
+    successUsers => dispatch(receiveSearchUsers(successUsers)),
+    err => dispatch(receiveUserErrors(err.responseJSON))
+  )
+);
