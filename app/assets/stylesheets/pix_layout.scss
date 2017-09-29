@@ -10,12 +10,12 @@
     width: 100%;
     border: 1px solid rgb(245,245,245);
     .profile-pic {
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
     }
     a {
+      float: left;
       color: black;
-      padding-left: 3%;
       margin: auto 0;
     }
 
@@ -23,6 +23,8 @@
       color: $hoverBlue;
     }
     h2 {
+      padding-left: 20%;
+      margin: 0;
       font-size: 30px;
     }
 
@@ -34,12 +36,15 @@
     h5 {
       margin: auto 0;
       padding-left: 3%;
+      float: left;
+      width: 100%
     }
 
   }
   img {
     width: 100%;
   }
+
 
 
 }

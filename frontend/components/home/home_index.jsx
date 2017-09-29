@@ -43,7 +43,7 @@ class HomeIndex extends React.Component {
               <Link to={`/users/${pic.author.username}`}><h2>{pic.author.username}</h2></Link>
             </div>
             <img className="homefeed-pic" src={scaledDownPicUrl}/>
-            <div>
+            <div className="under-the-pic">
               <Link to={`/users/${pic.author.username}`}><h4>{pic.author.username}</h4></Link>
               <h5>{pic.caption}</h5>
             </div>
