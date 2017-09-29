@@ -1,13 +1,27 @@
+.searchResults {
+  // logo:118 + search-padding-left:30
+  left: 148px;
+  position: relative;
+  max-width: 542px;
+  min-width: 300px;
+  width: 80%;
+  // box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 
+}
 
 .headerNav {
+  top: 0px;
+  position: fixed;
+  width: 100%;
   border-bottom: 1px solid #efefef;
   background-color: white;
   height: 65px;
+  z-index: 2;
 }
 
 .headerNav div{
-  width: 90%;
   height: 100%;
   margin: 0 auto;
 }
@@ -59,11 +73,11 @@
 }
 
 
-#searchLi {
+#discover {
   margin-left: auto;
 }
 //
-#searchLi input {
+#search-li input {
   border-radius: 15px;
   height: 37px;
   text-indent: 28px;

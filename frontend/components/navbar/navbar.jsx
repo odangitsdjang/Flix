@@ -29,10 +29,10 @@ const NavBar = ({ currentUser, logout }) => (
     <div>
       <ul className="header">
         <li><a className="logo" href="#/">Flix</a></li>
-        <li> <a href="#/discover">Discover</a> </li>
-        <li id="searchLi">
+        <li id="search-li">
           <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
         </li>
+        <li id="discover"> <a href="#/discover">Discover</a> </li>
         { currentUser ? profileNav(currentUser) : "" }
         { currentUser ? logOutNav(logout) : "" }
 

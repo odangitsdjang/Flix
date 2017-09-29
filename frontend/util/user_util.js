@@ -11,4 +11,10 @@ export default class UserUtil {
       data: { id, user: property }
     });
   }
+  static searchForUser(searchQuery) {
+    return $.ajax({
+      url: `api/users/`,
+      data: { letters: searchQuery }
+    });
+  }
 }

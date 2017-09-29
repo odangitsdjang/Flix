@@ -38,7 +38,7 @@ coffee.following_ids = [1]
 
 Pix.create(caption:"beans", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051565/coffee/fireskystudios-com-46284.jpg")
 Pix.create(caption:"artsy", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051564/coffee/jeremy-yap-199222.jpg")
-Pix.create(caption:"artsy artsy", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/matt-hoffman-146094.jpg")
+Pix.create(caption:"artsy fartsy", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/matt-hoffman-146094.jpg")
 Pix.create(caption:"you know what it is", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/matt-hoffman-310320.jpg")
 Pix.create(caption:"beans101", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051566/coffee/michal-grosicki-198598.jpg")
 Pix.create(caption:"yum", author_id: coffee.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051561/coffee/natalie-collins-57855.jpg")

@@ -74,7 +74,7 @@ class UserPix extends React.Component {
     <div className="user-pix">
       <div className="user-pix inner">
         <img src={PixUtil.getPotentiallySmallerPicFromUrl(
-            this.props.pic.img_url, 1900, 1080)}/>
+            this.props.pic.img_url, 1200, 800)}/>
       </div>
       <div className="pix-info">
         <div>

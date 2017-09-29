@@ -22,6 +22,14 @@ class User < ApplicationRecord
     (user && user.put_in_proper_password?(password)) ? user : nil
   end
 
+
+  def self.find_by_beginning_letters(letters)
+    # The % at the end of the string interpolation signifies that
+    # e.g. if letters = "us" it will look inside active record
+    # all the lower case version of username of user that starts with "us"
+    User.where("lower(username) like ?", "#{letters.downcase}%").limit(5)
+  end
+
   def password=(pw)
     @password = pw
     self.password_digest = BCrypt::Password.create(pw)

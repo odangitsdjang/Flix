@@ -1,6 +1,11 @@
 class Api::UsersController < ApplicationController
   def index
-    @users = User.all
+    # search
+    if params[:letters]
+      @users = User.find_by_beginning_letters(params[:letters])
+    else
+      @users = User.all
+    end
     render :index
   end
 
