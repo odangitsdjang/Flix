@@ -61,7 +61,8 @@ class UserModal extends React.Component {
       author_id: this.props.authorId };
     this.props.createPic(newPic).then(()=> {
       this.closeModal();
-      this.props.getUserInfo(newPic.author_id);
+      // this should take in username
+      this.props.getUserInfo(this.props.currentUser.username);
       this.props.resetLink();
     });
   }
@@ -78,7 +79,7 @@ class UserModal extends React.Component {
       <img src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.imgSrc)}/>
       <br/>
       <input name="caption" value={this.state.caption} placeholder="~~Caption~~" onChange={this.updateInput}/>
-      <input type="submit" value="upload!!"/>
+      <input type="submit" value="Upload"/>
     </form>
     );
   }
@@ -101,7 +102,8 @@ class UserModal extends React.Component {
     this.props.updateProfile(this.props.authorId, property).
       then(()=> {
         this.closeModal();
-        this.props.getUserInfo(this.props.authorId);
+        // this should take in username
+        this.props.getUserInfo(this.props.currentUser.username);
         this.props.resetLink();
     });
   }

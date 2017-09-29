@@ -7,11 +7,12 @@ import { getUserInfo, updateUser } from '../../actions/user_actions';
 // add pix to state
 
 const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.currentUser,
   authorId: state.session.currentUser.id
 });
 
 const mapDispatchToProps =  dispatch => ({
-  getUserInfo: (id) => dispatch(getUserInfo(id)),
+  getUserInfo: (username) => dispatch(getUserInfo(username)),
   createPic: (pic) => dispatch(createPic(pic)),
   updateProfile: (id, property) => dispatch(updateUser(id, property))
 });
