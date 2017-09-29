@@ -28,11 +28,11 @@ const greetingWithName = (currentUser, logout) => (
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {searchRes: ""};
-    this.setSearchRes = this.setSearchRes.bind(this);
+    this.state = {searchRes: "", searchInput: ""};
+    this.setSearchState = this.setSearchState.bind(this);
   }
-  setSearchRes(values) {
-    this.setState({searchRes: values});
+  setSearchState(value1, value2) {
+    this.setState({searchRes: value1, searchInput: value2});
   }
   render() {
     const { currentUser, logout } = this.props;
@@ -43,7 +43,7 @@ class NavBar extends React.Component {
             <ul className="header">
               <li><a className="logo" href="#/">Flix</a></li>
               <li id="search-li">
-                <SearchContainer setSearchRes={this.setSearchRes} />
+                <SearchContainer setSearchState={this.setSearchState} />
               </li>
               <li id="discover"> <a href="#/discover">Discover</a> </li>
               { currentUser ? profileNav(currentUser) : "" }
@@ -52,7 +52,7 @@ class NavBar extends React.Component {
           </div>
         </nav>
         <div>
-          <SearchResults searchRes={this.state.searchRes}/>
+          <SearchResults searchRes={this.state.searchRes} searchInput={this.state.searchInput}/>
         </div>
       </div>
 
