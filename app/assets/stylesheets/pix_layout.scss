@@ -1,4 +1,40 @@
 .individual {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 3%;
+  padding-bottom: 7%;
+  div {
+    display: flex;
+    padding: 2%;
+    background-color: white;
+    width: 100%;
+    .profile-pic {
+      width: 75px;
+      height: 75px;
+    }
+    a {
+      color: black;
+      padding-left: 3%;
+      margin: auto 0;
+    }
+
+    a:hover {
+      color: $hoverBlue;
+    }
+
+    h4{
+      font-weight: bold;
+    }
+
+    h5 {
+      padding-left: 3%;
+    }
+
+  }
+  img {
+    width: 100%;
+  }
+
 
 }
 

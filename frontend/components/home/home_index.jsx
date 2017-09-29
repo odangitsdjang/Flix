@@ -16,9 +16,8 @@ class HomeIndex extends React.Component {
   }
 
   // <Link to={`/users/${this.props.user.id}/pix/${pic.id}`}><img src={scaledDownUrl}/></Link>
-  // <img src={scaledDownUrl}/>
   //
-  renderPix() {
+  gridHelper() {
     if (this.props.pix) {
       return this.props.pix.map(pic=>{
         // scale down pictures when fetching from cloudinary url using regex
@@ -32,19 +31,41 @@ class HomeIndex extends React.Component {
     }
   }
 
-  renderGrid() {
+  indidualHelper() {
+    if (this.props.pix) {
+      return this.props.pix.map(pic=> {
+        const scaledDownPicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
+        const scaledDownProfilePicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.author.img_url, 150, 150);
+        return (
+          <div className="individual">
+            <div>
+              <img className="profile-pic" id="circle" src={scaledDownProfilePicUrl}/>
+              <Link to={`/users/${pic.author.username}`}><h2>{pic.author.username}</h2></Link>
+            </div>
+            <img className="homefeed-pic" src={scaledDownPicUrl}/>
+            <div>
+              <Link to={`/users/${pic.author.username}`}><h4>{pic.author.username}</h4></Link>
+              <h5>{pic.caption}</h5>
+            </div>
+          </div>);
+      }
 
+      );
+    }
+  }
+
+  renderGrid() {
     return (
       <div className="grid">
-        {this.renderPix()}
+        {this.gridHelper()}
       </div>
     );
   }
 
   renderIndividual() {
     return (
-      <div className="individual">
-        {this.renderPix()}
+      <div>
+        {this.indidualHelper()}
       </div>
     );
   }
@@ -66,7 +87,7 @@ class HomeIndex extends React.Component {
         <div className="userBody">
           <div className="userPix">
             { this.renderLoader() }
-            { this.renderGrid() }
+            { this.props.match.path === "/" ? this.renderIndividual() : this.renderGrid() }
           </div>
         </div>
       </div>
