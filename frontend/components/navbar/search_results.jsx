@@ -13,14 +13,16 @@ const showRes = (searchRes, searchInput) => {
 };
 
 const renderRes = (searchRes) => {
-  const arr = Object.keys(searchRes).map(id=>searchRes[id]);
-  return arr.map(res =>
-    <Link to={`/users/${res.username}`}>
-      <li key={res.key}>
-        {res.username}
-      </li>
-    </Link>
-  );
+  if (searchRes) {
+    const arr = Object.keys(searchRes).map(id=>searchRes[id]);
+    return arr.map(res =>
+      <Link to={`/users/${res.username}`}>
+        <li key={res.key}>
+          {res.username}
+        </li>
+      </Link>
+    );
+  }
 };
 const SearchResults = ({ searchRes, searchInput }) => (
   <div id="search-results">
