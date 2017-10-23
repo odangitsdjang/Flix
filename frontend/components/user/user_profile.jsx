@@ -57,7 +57,7 @@ class UserProfile extends React.Component {
   renderUserProfilePic() {
     const { user } = this.props;
     if (user)
-     return <img id="circle" src={PixUtil.getPotentiallySmallerPicFromUrl(user.img_url)}/>;
+     return <img id="circle" src={PixUtil.getPotentiallySmallerPicFromUrl(user.img_url, 400, 400)}/>;
   }
 
 
@@ -68,7 +68,7 @@ class UserProfile extends React.Component {
         // scale down pictures when fetching from cloudinary url using regex
         const scaledDownUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
         return (
-        <div>
+        <div key={pic.id}>
             <Link to={`/users/${this.props.user.username}/pix/${pic.id}`}><img src={scaledDownUrl}/></Link>
         </div>
         );

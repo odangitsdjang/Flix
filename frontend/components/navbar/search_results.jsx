@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 const showRes = (searchRes, searchInput) => {
     const searchDom = document.getElementById('search-results');
-    console.log(searchInput);
+    // console.log(searchInput);
     if (searchDom) {
       if (searchRes && searchInput !== "") {
         searchDom.style.display = 'flex';

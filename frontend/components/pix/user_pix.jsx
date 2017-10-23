@@ -78,7 +78,7 @@ class UserPix extends React.Component {
       </div>
       <div className="pix-info">
         <div>
-          <img id="circle" src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.pic.author.img_url)} id="circle"/>
+          <img id="circle" src={PixUtil.getPotentiallySmallerPicFromUrl(this.props.pic.author.img_url, 400, 400)} id="circle"/>
           <ul>
             <li> <Link to={`/users/${this.props.pic.author.username}`}><h1>{this.props.pic.author.username}</h1> </Link> </li>
             <li><h3>{this.props.pic.caption}</h3></li>

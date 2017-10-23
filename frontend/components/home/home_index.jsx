@@ -23,7 +23,7 @@ class HomeIndex extends React.Component {
         // scale down pictures when fetching from cloudinary url using regex
         const scaledDownUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
         return (
-        <div>
+        <div key={pic.id}>
           <PixContainer scaledDownUrl={scaledDownUrl} pic={pic} path={this.props.match.path}/>
         </div>
         );
@@ -38,7 +38,7 @@ class HomeIndex extends React.Component {
           const scaledDownPicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
           const scaledDownProfilePicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.author.img_url, 150, 150);
           return (
-            <div className="individual">
+            <div className="individual" key={pic.id}>
               <div>
                 <img className="profile-pic" id="circle" src={scaledDownProfilePicUrl}/>
                 <Link to={`/users/${pic.author.username}`}><h2>{pic.author.username}</h2></Link>

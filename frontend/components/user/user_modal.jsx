@@ -43,7 +43,7 @@ class UserModal extends React.Component {
   }
 
   afterOpenModal() {
-    this.subtitle.style.color = '#050606';
+    
   }
 
   closeModal() {
@@ -55,7 +55,6 @@ class UserModal extends React.Component {
   }
 
   createPix(e) {
-    console.log(this.props.imgSrc);
     e.preventDefault();
     const newPic = { caption: this.state.caption, img_url: this.props.imgSrc,
       author_id: this.props.authorId };

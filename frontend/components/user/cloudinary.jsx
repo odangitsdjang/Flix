@@ -19,7 +19,7 @@ export default class Cloudinary extends React.Component {
   }
 
   resetLink() {
-    console.log("resetLink: ");
+    // console.log("resetLink: ");
     this.setState({uploadedFileCloudinaryUrl: ""});
   }
 
@@ -36,8 +36,8 @@ export default class Cloudinary extends React.Component {
     let upload = request.post(CLOUDINARY_UPLOAD_URL)
                         .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
                         .field('file', file);
-    console.log(file);
-    console.log(upload);
+    // console.log(file);
+    // console.log(upload);
     // handle more errors here
     upload.end((err, response) => {
       if (err) {
