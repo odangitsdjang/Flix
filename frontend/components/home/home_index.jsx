@@ -32,6 +32,7 @@ class HomeIndex extends React.Component {
   }
 
   indidualHelper() {
+    console.log(this.props.pix)
     if (this.props.pix) {
       return this.props.pix.map(pic=> {
         const scaledDownPicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
