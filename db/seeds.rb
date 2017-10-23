@@ -24,7 +24,7 @@ User.create(username: "CleanDesigns", password:"secret?", email: "CleanDesigns@g
 
 scenery = User.find_by_username("scenery")
 scenery.follower_ids = [1,2,3,4,5,6,7,8,9,10,15,20,13]
-scenery.following_ids = [1,2,3,4,5,6,7,8,9,10]
+scenery.following_ids = [1,2,3,4,5,6,7,8,9,10,56]
 
 Pix.create(caption:"Waterfall with trees", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051550/scenery/thomas-kelley-64329.jpg")
 Pix.create(caption:"The lake and the mountain", author_id: scenery.id, img_url: "http://res.cloudinary.com/odangitsdjang/image/upload/v1506051548/scenery/philippe-toupet-320689.jpg")

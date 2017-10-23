@@ -31,27 +31,31 @@ class HomeIndex extends React.Component {
     }
   }
 
-  indidualHelper() {
-    console.log(this.props.pix)
+  individualHelper() {
     if (this.props.pix) {
-      return this.props.pix.map(pic=> {
-        const scaledDownPicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
-        const scaledDownProfilePicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.author.img_url, 150, 150);
+      if (this.props.pix.length > 0)
+        return this.props.pix.map(pic=> {
+          const scaledDownPicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.img_url);
+          const scaledDownProfilePicUrl = PixUtil.getPotentiallySmallerPicFromUrl(pic.author.img_url, 150, 150);
+          return (
+            <div className="individual">
+              <div>
+                <img className="profile-pic" id="circle" src={scaledDownProfilePicUrl}/>
+                <Link to={`/users/${pic.author.username}`}><h2>{pic.author.username}</h2></Link>
+              </div>
+              <img className="homefeed-pic" src={scaledDownPicUrl}/>
+              <div className="under-the-pic">
+                <Link to={`/users/${pic.author.username}`}><h4>{pic.author.username}</h4></Link>
+                <h5>{pic.caption}</h5>
+              </div>
+            </div>);
+        });
+      else  {
         return (
-          <div className="individual">
-            <div>
-              <img className="profile-pic" id="circle" src={scaledDownProfilePicUrl}/>
-              <Link to={`/users/${pic.author.username}`}><h2>{pic.author.username}</h2></Link>
-            </div>
-            <img className="homefeed-pic" src={scaledDownPicUrl}/>
-            <div className="under-the-pic">
-              <Link to={`/users/${pic.author.username}`}><h4>{pic.author.username}</h4></Link>
-              <h5>{pic.caption}</h5>
-            </div>
-          </div>);
+        <div>
+            <h5 className="c">You are not following anyone! Go to discover and find some people to follow!</h5>
+        </div>);
       }
-
-      );
     }
   }
 
@@ -66,7 +70,7 @@ class HomeIndex extends React.Component {
   renderIndividual() {
     return (
       <div>
-        {this.indidualHelper()}
+        {this.individualHelper()}
       </div>
     );
   }
