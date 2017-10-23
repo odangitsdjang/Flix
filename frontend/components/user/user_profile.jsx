@@ -5,9 +5,13 @@ import PixUtil from  '../../util/pix_util';
 
 class UserProfile extends React.Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.getUserInfo(this.props.match.params.username).then(undefined, () => this.props.history.push("/"));
   }
 
+  componentWillReceiveProps(nextProps) {
+    window.scrollTo(0, 0);  
+  }
   renderUserInfo() {
     const { user, currentUserId } = this.props;
     if (user) {
